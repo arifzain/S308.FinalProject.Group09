@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="221*"/>
+            <ColumnDefinition Width="296*"/>
+        </Grid.ColumnDefinitions>
         <Label x:Name="label" Content="Fitness Club" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="26,10,0,0"/>
 
     </Grid>

@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitnessClub"
         mc:Ignorable="d"
-        Title="Pricing Management" Height="400" Width="540" WindowStartupLocation="CenterScreen">
+        Title="Pricing Management" Height="400" Width="528" WindowStartupLocation="CenterScreen">
     <Grid>
         <Image x:Name="imgFitnessClubLogo" HorizontalAlignment="Left" Height="100" Margin="44,10,0,0" VerticalAlignment="Top" Width="100" Source="pack://siteoforigin:,,,/Resources/FitnessClubLogo.png"/>
 
-        <Label x:Name="lblFitnesClubPricingManagement" Content="Fitness Club Pricing Management" HorizontalAlignment="Left" Margin="149,44,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14.667"/>
+        <Label x:Name="lblFitnesClubPricingManagement" Content="FITNESS CLUB PRICING MANAGEMENT" HorizontalAlignment="Left" Margin="144,44,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14.667"/>
         <Label x:Name="lblInstructions" Content="Please select a membership type from the dropdown box. Then indicate whether &#xA;the membership type is still being offered and an updated price for the membership &#xA;type selected. Finally, click &quot;Update&quot; to save the changes. " HorizontalAlignment="Left" Margin="44,107,0,0" VerticalAlignment="Top" Width="460" Height="58" Background="#FFEAC6DA"/>
         <Label x:Name="lblMembershipType" Content="Membership Type" HorizontalAlignment="Left" Margin="93,183,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblSelectedMembershipType" Content="Selected Membership Type" HorizontalAlignment="Left" Margin="44,216,0,0" VerticalAlignment="Top"/>
@@ -22,8 +22,8 @@
         <RadioButton x:Name="radYes" Content="Yes" HorizontalAlignment="Left" Margin="254,253,0,0" VerticalAlignment="Top" IsChecked="True" TabIndex="3"/>
         <RadioButton x:Name="radNo" Content="No" HorizontalAlignment="Left" Margin="315,253,0,0" VerticalAlignment="Top" TabIndex="4"/>
         <TextBox x:Name="txtCurrentPRice" HorizontalAlignment="Left" Height="23" Margin="254,282,0,0" TextWrapping="Wrap" Text="$9.99" VerticalAlignment="Top" Width="219" TabIndex="5"/>
-        <Button x:Name="btnMainMenu" Content="Main Menu" HorizontalAlignment="Left" Margin="299,332,0,0" VerticalAlignment="Top" Width="75" TabIndex="7"/>
-        <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="398,332,0,0" VerticalAlignment="Top" Width="75" TabIndex="6"/>
+        <Button x:Name="btnMainMenu" Content="Main Menu" HorizontalAlignment="Left" Margin="299,332,0,0" VerticalAlignment="Top" Width="75" TabIndex="7" Background="#FFEAC6DA"/>
+        <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="398,332,0,0" VerticalAlignment="Top" Width="75" TabIndex="6" Background="#FFEAC6DA"/>
 
     </Grid>
 </Window>

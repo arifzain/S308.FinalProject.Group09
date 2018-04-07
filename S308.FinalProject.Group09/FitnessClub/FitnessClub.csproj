@@ -71,6 +71,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MembershipQuote.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MembershipSales.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -83,6 +87,9 @@
   <ItemGroup>
     <Compile Include="MemberInformation.xaml.cs">
       <DependentUpon>MemberInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MembershipQuote.xaml.cs">
+      <DependentUpon>MembershipQuote.xaml</DependentUpon>
     </Compile>
     <Compile Include="MembershipSales.xaml.cs">
       <DependentUpon>MembershipSales.xaml</DependentUpon>

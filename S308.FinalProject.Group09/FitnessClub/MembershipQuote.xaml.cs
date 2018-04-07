@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace FitnessClub
 {
     /// <summary>
-    /// Interaction logic for MembershipSales.xaml
+    /// Interaction logic for MembershipQuote.xaml
     /// </summary>
-    public partial class MembershipSales : Window
+    public partial class MembershipQuote : Window
     {
-        public MembershipSales()
+        public MembershipQuote()
         {
             InitializeComponent();
-        }
-
-        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

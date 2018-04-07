@@ -1,4 +1,4 @@
-﻿//Leo Metallic
+﻿//Group09: Arif Zain Abdullah, Amirah Malek, Leo Metallic
 
 
 using System;
@@ -26,6 +26,27 @@ namespace FitnessClub
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnMembershipSales_Click(object sender, RoutedEventArgs e)
+        {
+            MembershipSales newWindow = new MembershipSales();
+            newWindow.Show();
+            this.Close();
+        }
+
+        private void btnPricingManagement_Click(object sender, RoutedEventArgs e)
+        {
+            Pricing_Management newWindow = new Pricing_Management();
+            newWindow.Show();
+            this.Close();
+        }
+
+        private void btnMemberInformation_Click(object sender, RoutedEventArgs e)
+        {
+            MemberInformation newWindow = new MemberInformation();
+            newWindow.Show();
+            this.Close();
         }
     }
 }

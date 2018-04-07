@@ -18,22 +18,22 @@
         <Label x:Name="lblAge" Content="Age:" HorizontalAlignment="Left" Height="24" Margin="129,185,0,0" VerticalAlignment="Top" Width="26" FontSize="8"/>
         <Label x:Name="lblWeight" Content="Weight:" HorizontalAlignment="Left" Height="24" Margin="198,185,0,0" VerticalAlignment="Top" Width="37" FontSize="8"/>
         <Label x:Name="lblGoals" Content="Personal Fitness Goals:" HorizontalAlignment="Left" Height="24" Margin="10,209,0,0" VerticalAlignment="Top" Width="90" FontSize="8"/>
-        <TextBox x:Name="txtFirstName" HorizontalAlignment="Left" Height="14" Margin="58,103,0,0" TextWrapping="Wrap" Text="Matthew" VerticalAlignment="Top" Width="66" FontSize="8"/>
-        <TextBox x:Name="txtAge" HorizontalAlignment="Left" Height="14" Margin="155,189,0,0" TextWrapping="Wrap" Text="25" VerticalAlignment="Top" Width="38" FontSize="8"/>
-        <TextBox x:Name="txtWeight" HorizontalAlignment="Left" Height="14" Margin="235,189,0,0" TextWrapping="Wrap" Text="165" VerticalAlignment="Top" Width="47" FontSize="8"/>
-        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="14" Margin="159,165,0,0" TextWrapping="Wrap" Text="chug@plug.net" VerticalAlignment="Top" Width="123" FontSize="8"/>
-        <TextBox x:Name="txtPhone" HorizontalAlignment="Left" Height="14" Margin="44,165,0,0" TextWrapping="Wrap" Text="(317) 555-5555" VerticalAlignment="Top" Width="80" FontSize="8"/>
-        <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="14" Margin="178,103,0,0" TextWrapping="Wrap" Text="Adelson" VerticalAlignment="Top" Width="104" FontSize="8"/>
-        <TextBox x:Name="txtCCNumber" HorizontalAlignment="Left" Height="14" Margin="93,141,0,0" TextWrapping="Wrap" Text="5555 5555 5555 4444" VerticalAlignment="Top" Width="189" FontSize="8"/>
-        <RadioButton x:Name="rboAthletic" Content="Athletic Performance" HorizontalAlignment="Left" Height="17" Margin="10,231,0,0" VerticalAlignment="Top" Width="95" FontSize="8" GroupName="goals"/>
-        <RadioButton x:Name="rboHealth" Content="Overall Health" HorizontalAlignment="Left" Height="17" Margin="110,231,0,0" VerticalAlignment="Top" Width="74" FontSize="8" GroupName="goals"/>
-        <RadioButton x:Name="rboStrength" Content="Strength Training" HorizontalAlignment="Left" Height="17" Margin="189,231,0,0" VerticalAlignment="Top" Width="93" FontSize="8" GroupName="goals"/>
-        <RadioButton x:Name="rboWeightLoss" Content="Weight Loss" HorizontalAlignment="Left" Height="17" Margin="10,248,0,0" VerticalAlignment="Top" Width="95" FontSize="8" GroupName="goals"/>
-        <RadioButton x:Name="rboManagement" Content="Weight Management" HorizontalAlignment="Left" Height="17" Margin="110,248,0,0" VerticalAlignment="Top" Width="103" FontSize="8" GroupName="goals"/>
-        <ComboBox x:Name="cboCCType" HorizontalAlignment="Left" Height="15" Margin="84,121,0,0" VerticalAlignment="Top" Width="198"/>
-        <ComboBox x:Name="cboGender1" HorizontalAlignment="Left" Height="15" Margin="51,188,0,0" VerticalAlignment="Top" Width="73"/>
-        <Button x:Name="btnSubmit" Content="Submit" HorizontalAlignment="Left" Height="22" Margin="206,294,0,0" VerticalAlignment="Top" Width="76" Background="#FFEAC6DA"/>
-        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Height="22" Margin="125,294,0,0" VerticalAlignment="Top" Width="76" Background="#FFEAC6DA"/>
+        <TextBox x:Name="txtFirstName" HorizontalAlignment="Left" Height="14" Margin="58,103,0,0" TextWrapping="Wrap" Text="Matthew" VerticalAlignment="Top" Width="66" FontSize="8" TabIndex="1"/>
+        <TextBox x:Name="txtAge" HorizontalAlignment="Left" Height="14" Margin="155,189,0,0" TextWrapping="Wrap" Text="25" VerticalAlignment="Top" Width="38" FontSize="8" TabIndex="8"/>
+        <TextBox x:Name="txtWeight" HorizontalAlignment="Left" Height="14" Margin="235,189,0,0" TextWrapping="Wrap" Text="165" VerticalAlignment="Top" Width="47" FontSize="8" TabIndex="9"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="14" Margin="159,165,0,0" TextWrapping="Wrap" Text="chug@plug.net" VerticalAlignment="Top" Width="123" FontSize="8" TabIndex="6"/>
+        <TextBox x:Name="txtPhone" HorizontalAlignment="Left" Height="14" Margin="44,165,0,0" TextWrapping="Wrap" Text="(317) 555-5555" VerticalAlignment="Top" Width="80" FontSize="8" TabIndex="5"/>
+        <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="14" Margin="178,103,0,0" TextWrapping="Wrap" Text="Adelson" VerticalAlignment="Top" Width="104" FontSize="8" TabIndex="2"/>
+        <TextBox x:Name="txtCCNumber" HorizontalAlignment="Left" Height="14" Margin="93,141,0,0" TextWrapping="Wrap" Text="5555 5555 5555 4444" VerticalAlignment="Top" Width="189" FontSize="8" TabIndex="4"/>
+        <RadioButton x:Name="rboAthletic" Content="Athletic Performance" HorizontalAlignment="Left" Height="17" Margin="10,231,0,0" VerticalAlignment="Top" Width="95" FontSize="8" GroupName="goals" TabIndex="10"/>
+        <RadioButton x:Name="rboHealth" Content="Overall Health" HorizontalAlignment="Left" Height="17" Margin="110,231,0,0" VerticalAlignment="Top" Width="74" FontSize="8" GroupName="goals" TabIndex="11"/>
+        <RadioButton x:Name="rboStrength" Content="Strength Training" HorizontalAlignment="Left" Height="17" Margin="189,231,0,0" VerticalAlignment="Top" Width="93" FontSize="8" GroupName="goals" TabIndex="12"/>
+        <RadioButton x:Name="rboWeightLoss" Content="Weight Loss" HorizontalAlignment="Left" Height="17" Margin="10,248,0,0" VerticalAlignment="Top" Width="95" FontSize="8" GroupName="goals" TabIndex="13"/>
+        <RadioButton x:Name="rboManagement" Content="Weight Management" HorizontalAlignment="Left" Height="17" Margin="110,248,0,0" VerticalAlignment="Top" Width="103" FontSize="8" GroupName="goals" TabIndex="14"/>
+        <ComboBox x:Name="cboCCType" HorizontalAlignment="Left" Height="15" Margin="84,121,0,0" VerticalAlignment="Top" Width="198" TabIndex="3"/>
+        <ComboBox x:Name="cboGender1" HorizontalAlignment="Left" Height="15" Margin="51,188,0,0" VerticalAlignment="Top" Width="73" TabIndex="7"/>
+        <Button x:Name="btnSubmit" Content="Submit" HorizontalAlignment="Left" Height="22" Margin="206,294,0,0" VerticalAlignment="Top" Width="76" Background="#FFEAC6DA" TabIndex="15"/>
+        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Height="22" Margin="125,294,0,0" VerticalAlignment="Top" Width="76" Background="#FFEAC6DA" TabIndex="16"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="89" Margin="10,10,0,0" VerticalAlignment="Top" Width="89" Source="Properties/FitnessClubLogo.png"/>
 
     </Grid>

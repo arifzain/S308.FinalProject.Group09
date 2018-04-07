@@ -26,7 +26,7 @@
         <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="14" Margin="178,46,0,0" TextWrapping="Wrap" Text="Adelson" VerticalAlignment="Top" Width="104" FontSize="8"/>
         <TextBox x:Name="txtCCNumber" HorizontalAlignment="Left" Height="14" Margin="93,84,0,0" TextWrapping="Wrap" Text="5555 5555 5555 4444" VerticalAlignment="Top" Width="189" FontSize="8"/>
         <RadioButton x:Name="rboAthletic" Content="Athletic Performance" HorizontalAlignment="Left" Height="17" Margin="10,174,0,0" VerticalAlignment="Top" Width="95" FontSize="8" GroupName="goals"/>
-        <RadioButton x:Name="rboHealth" Content="OverallHealth" HorizontalAlignment="Left" Height="17" Margin="110,174,0,0" VerticalAlignment="Top" Width="74" FontSize="8" GroupName="goals"/>
+        <RadioButton x:Name="rboHealth" Content="Overall Health" HorizontalAlignment="Left" Height="17" Margin="110,174,0,0" VerticalAlignment="Top" Width="74" FontSize="8" GroupName="goals" Checked="rboHealth_Checked"/>
         <RadioButton x:Name="rboStrength" Content="Strength Training" HorizontalAlignment="Left" Height="17" Margin="189,174,0,0" VerticalAlignment="Top" Width="93" FontSize="8" GroupName="goals"/>
         <RadioButton x:Name="rboWeightLoss" Content="Weight Loss" HorizontalAlignment="Left" Height="17" Margin="10,191,0,0" VerticalAlignment="Top" Width="95" FontSize="8" GroupName="goals"/>
         <RadioButton x:Name="rboManagement" Content="Weight Management" HorizontalAlignment="Left" Height="17" Margin="110,191,0,0" VerticalAlignment="Top" Width="103" FontSize="8" GroupName="goals"/>

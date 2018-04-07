@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitnessClub"
         mc:Ignorable="d"
-        Title="Membership Sales" Height="300" Width="300" WindowStartupLocation="CenterScreen">
+        Title="Membership Sales" Height="320" Width="300" WindowStartupLocation="CenterScreen">
     <Grid>
         <Label x:Name="lblNewClient" Content="NEW CLIENT SIGN-UP" HorizontalAlignment="Left" Height="27" Margin="10,10,0,0" VerticalAlignment="Top" Width="145" FontWeight="Bold"/>
         <Label x:Name="lblType" Content="Membership Type:" HorizontalAlignment="Left" Height="27" Margin="16,113,0,0" VerticalAlignment="Top" Width="110"/>
         <Label x:Name="lblStartDate" Content="Start Date:" HorizontalAlignment="Left" Height="23" Margin="60,145,0,0" VerticalAlignment="Top" Width="66"/>
         <Label x:Name="lblAdditionalFeatures" Content="Additional Features:" HorizontalAlignment="Left" Height="27" Margin="11,173,0,0" VerticalAlignment="Top" Width="117"/>
-        <Button x:Name="btnQuote" Content="Quote" HorizontalAlignment="Left" Height="26" Margin="195,233,0,0" VerticalAlignment="Top" Width="81" Background="#FFEAC6DA" TabIndex="5"/>
+        <Button x:Name="btnQuote" Content="Quote" HorizontalAlignment="Left" Height="26" Margin="195,233,0,0" VerticalAlignment="Top" Width="81" Background="#FFEAC6DA" TabIndex="5" Click="btnQuote_Click"/>
         <CheckBox x:Name="cboPersonalTrainingPlan" Content="Personal Training Plan" HorizontalAlignment="Left" Height="20" Margin="131,179,0,0" VerticalAlignment="Top" Width="145" TabIndex="3"/>
         <CheckBox x:Name="cboLockerRental" Content="Locker Rental" HorizontalAlignment="Left" Height="22" Margin="131,204,0,0" VerticalAlignment="Top" Width="128" TabIndex="4"/>
         <TextBox x:Name="txtStartDate" HorizontalAlignment="Left" Height="19" Margin="131,149,0,0" TextWrapping="Wrap" Text="04/06/2018" VerticalAlignment="Top" Width="145" TabIndex="2"/>

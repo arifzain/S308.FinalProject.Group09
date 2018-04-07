@@ -24,5 +24,11 @@ namespace FitnessClub
             InitializeComponent();
         }
 
+        private void btnQuote_Click(object sender, RoutedEventArgs e)
+        {
+            MembershipQuote newWindow = new MembershipQuote();
+            newWindow.Show();
+            this.Close();
+        }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitnessClub"
         mc:Ignorable="d"
-        Title="Member Information" Height="555" Width="649.038" WindowStartupLocation="CenterScreen">
+        Title="Member Information" Height="575" Width="650" WindowStartupLocation="CenterScreen">
     <Grid>
         <Rectangle HorizontalAlignment="Left" Height="271" Margin="22,215,0,0" Stroke="Black" VerticalAlignment="Top" Width="595"/>
         <Label x:Name="lblLastName" Content="Last Name: " HorizontalAlignment="Left" Margin="32,116,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
@@ -58,7 +58,7 @@
         <TextBox x:Name="txtFitnessGoal" HorizontalAlignment="Left" Height="23" Margin="276,448,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="329" FontSize="11" Text="N/A" IsReadOnly="True"/>
         <Button x:Name="btnFind" Content="Find Record" HorizontalAlignment="Left" Margin="439,184,0,0" VerticalAlignment="Top" Width="80" Background="#FFEAC6DA" FontSize="11" TabIndex="4"/>
         <Button x:Name="btnClear" Content="Clear" HorizontalAlignment="Left" Margin="531,184,0,0" VerticalAlignment="Top" Width="74" Background="#FFEAC6DA" FontSize="11" TabIndex="5"/>
-        <Button x:Name="btnMain" Content="Main Menu" HorizontalAlignment="Left" Margin="543,495,0,0" VerticalAlignment="Top" Width="74" Background="#FFEAC6DA" FontSize="11" TabIndex="6"/>
+        <Button x:Name="btnMain" Content="Main Menu" HorizontalAlignment="Left" Margin="543,495,0,10" Width="74" Background="#FFEAC6DA" FontSize="11" TabIndex="6" Click="btnMain_Click"/>
         <Label x:Name="lblLbs" Content="lbs" HorizontalAlignment="Left" Margin="165,446,0,0" VerticalAlignment="Top" FontSize="11"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="39,11,0,0" VerticalAlignment="Top" Width="100" Source="Properties/FitnessClubLogo.png"/>
 

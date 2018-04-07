@@ -22,7 +22,7 @@
         <RadioButton x:Name="radYes" Content="Yes" HorizontalAlignment="Left" Margin="254,253,0,0" VerticalAlignment="Top" IsChecked="True" TabIndex="3"/>
         <RadioButton x:Name="radNo" Content="No" HorizontalAlignment="Left" Margin="315,253,0,0" VerticalAlignment="Top" TabIndex="4"/>
         <TextBox x:Name="txtCurrentPRice" HorizontalAlignment="Left" Height="23" Margin="254,282,0,0" TextWrapping="Wrap" Text="$9.99" VerticalAlignment="Top" Width="219" TabIndex="5"/>
-        <Button x:Name="btnMainMenu" Content="Main Menu" HorizontalAlignment="Left" Margin="299,332,0,0" VerticalAlignment="Top" Width="75" TabIndex="7" Background="#FFEAC6DA"/>
+        <Button x:Name="btnMainMenu" Content="Main Menu" HorizontalAlignment="Left" Margin="299,332,0,0" VerticalAlignment="Top" Width="75" TabIndex="7" Background="#FFEAC6DA" Click="btnMainMenu_Click"/>
         <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="398,332,0,0" VerticalAlignment="Top" Width="75" TabIndex="6" Background="#FFEAC6DA"/>
 
     </Grid>

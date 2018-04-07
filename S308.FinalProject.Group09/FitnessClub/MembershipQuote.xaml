@@ -9,7 +9,7 @@
     <Grid>
         <Label x:Name="lblQuote" Content="MEMBERSHIP QUOTE" HorizontalAlignment="Left" Height="28" Margin="22,10,0,0" VerticalAlignment="Top" Width="140" FontWeight="Bold"/>
         <Label x:Name="lblPerMonth" Content="per month" HorizontalAlignment="Left" Height="27" Margin="180,77,0,0" VerticalAlignment="Top" Width="72"/>
-        <Button x:Name="btnMainMenu" Content="Main Menu" HorizontalAlignment="Left" Height="20" Margin="449,181,0,0" VerticalAlignment="Top" Width="74" Background="#FFEAC6DA" TabIndex="2"/>
+        <Button x:Name="btnMainMenu" Content="Main Menu" HorizontalAlignment="Left" Height="20" Margin="449,181,0,0" VerticalAlignment="Top" Width="74" Background="#FFEAC6DA" TabIndex="2" Click="btnMainMenu_Click"/>
         <Button x:Name="btnSignUp" Content="Sign Up" HorizontalAlignment="Left" Height="20" Margin="543,181,0,0" VerticalAlignment="Top" Width="74" Background="#FFEAC6DA" TabIndex="1"/>
         <Rectangle x:Name="recBorder" HorizontalAlignment="Left" Height="124" Margin="22,38,0,0" Stroke="Black" VerticalAlignment="Top" Width="595"/>
         <Label x:Name="lblMembershipType" Content="Membership Type: " HorizontalAlignment="Left" Margin="28,52,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="11"/>

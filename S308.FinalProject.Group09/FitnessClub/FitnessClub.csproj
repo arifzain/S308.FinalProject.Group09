@@ -79,6 +79,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MembershipSignUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pricing Management.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -93,6 +97,9 @@
     </Compile>
     <Compile Include="MembershipSales.xaml.cs">
       <DependentUpon>MembershipSales.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MembershipSignUp.xaml.cs">
+      <DependentUpon>MembershipSignUp.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pricing Management.xaml.cs">
       <DependentUpon>Pricing Management.xaml</DependentUpon>

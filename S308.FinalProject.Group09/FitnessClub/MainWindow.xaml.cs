@@ -37,7 +37,7 @@ namespace FitnessClub
 
         private void btnPricingManagement_Click(object sender, RoutedEventArgs e)
         {
-            Pricing_Management newWindow = new Pricing_Management();
+            PricingManagement newWindow = new PricingManagement();
             newWindow.Show();
             this.Close();
         }

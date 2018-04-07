@@ -7,6 +7,15 @@
         mc:Ignorable="d"
         Title="MembershipSales" Height="300" Width="300">
     <Grid>
-        
+        <Label x:Name="lblNewClient" Content="New Client Sign-Up" HorizontalAlignment="Left" Height="27" Margin="10,10,0,0" VerticalAlignment="Top" Width="117"/>
+        <Label x:Name="lblType" Content="Membership Type:" HorizontalAlignment="Left" Height="27" Margin="10,52,0,0" VerticalAlignment="Top" Width="110"/>
+        <Label x:Name="lblStartDate" Content="Start Date:" HorizontalAlignment="Left" Height="23" Margin="54,84,0,0" VerticalAlignment="Top" Width="66"/>
+        <Label x:Name="lblAdditionalFeatures" Content="Additional Features:" HorizontalAlignment="Left" Height="27" Margin="5,112,0,0" VerticalAlignment="Top" Width="117"/>
+        <Button x:Name="btnQuote" Content="Quote" HorizontalAlignment="Left" Height="26" Margin="160,207,0,0" VerticalAlignment="Top" Width="81"/>
+        <CheckBox x:Name="cboPersonalTrainingPlan" Content="Personal Training Plan" HorizontalAlignment="Left" Height="20" Margin="125,118,0,0" VerticalAlignment="Top" Width="145"/>
+        <CheckBox x:Name="cboLockerRental" Content="Locker Rental" HorizontalAlignment="Left" Height="22" Margin="125,143,0,0" VerticalAlignment="Top" Width="128"/>
+        <TextBox x:Name="txtMembershipType" HorizontalAlignment="Left" Height="17" Margin="125,56,0,0" TextWrapping="Wrap" Text="Premium" VerticalAlignment="Top" Width="135"/>
+        <TextBox x:Name="txtStartDate" HorizontalAlignment="Left" Height="19" Margin="125,88,0,0" TextWrapping="Wrap" Text="04/06/2018" VerticalAlignment="Top" Width="135"/>
+
     </Grid>
 </Window>

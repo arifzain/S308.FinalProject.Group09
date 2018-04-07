@@ -16,7 +16,7 @@
         <Label x:Name="lblMembershipAvailability" Content="Currently Being Offered?" HorizontalAlignment="Left" Margin="57,247,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblselectedMebershipTypeDisp" Content="Individual 1 Month" HorizontalAlignment="Left" Margin="254,216,0,0" VerticalAlignment="Top" Width="219" TabIndex="2"/>
         <Label x:Name="lblCurrentPrice" Content="Current Price" HorizontalAlignment="Left" Margin="119,278,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cbxmembershipType" HorizontalAlignment="Left" Margin="254,185,0,0" VerticalAlignment="Top" Width="219" TabIndex="1">
+        <ComboBox x:Name="cboMembershipType" HorizontalAlignment="Left" Margin="254,185,0,0" VerticalAlignment="Top" Width="219" TabIndex="1">
             <ComboBoxItem x:Name="cbiInd1Month" Content="Individual 1 Month" HorizontalAlignment="Left" Width="118" IsSelected="True"/>
         </ComboBox>
         <RadioButton x:Name="radYes" Content="Yes" HorizontalAlignment="Left" Margin="254,253,0,0" VerticalAlignment="Top" IsChecked="True" TabIndex="3"/>

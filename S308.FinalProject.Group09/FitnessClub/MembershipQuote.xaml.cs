@@ -15,13 +15,13 @@ using System.Windows.Shapes;
 namespace FitnessClub
 {
     /// <summary>
-    /// Interaction logic for MemberInformation.xaml
+    /// Interaction logic for MembershipQuote.xaml
     /// </summary>
-    public partial class MemberInformation : Window
+    public partial class MembershipQuote : Window
     {
-        public MemberInformation()
+        public MembershipQuote()
         {
             InitializeComponent();
         }
- }
+    }
 }

@@ -30,5 +30,6 @@ namespace FitnessClub
             newWindow.Show();
             this.Close();
         }
+
     }
 }

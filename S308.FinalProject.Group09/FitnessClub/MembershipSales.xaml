@@ -17,13 +17,13 @@
         <TextBox x:Name="txtStartDate" HorizontalAlignment="Left" Height="19" Margin="131,149,0,0" TextWrapping="Wrap" Text="04/06/2018" VerticalAlignment="Top" Width="145" TabIndex="2"/>
         <TextBlock x:Name="txtSignUpInstructions" HorizontalAlignment="Left" Height="72" Margin="15,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="261" Background="#FFEAC6DA"><Run Text="Input the membership type and start date, "/><Run Text="then add any additional features. Then click the &quot;Quote&quot; button to receive the potential customer's membership quote."/></TextBlock>
         <ComboBox x:Name="cboMembershipType" HorizontalAlignment="Left" Height="27" Margin="133,113,0,0" VerticalAlignment="Top" Width="143" TabIndex="1">
-            <ListBoxItem/>
-            <ListBoxItem Content="Individual 1 Month"/>
-            <ListBoxItem Content="Individual 12 Month"/>
-            <ListBoxItem Content="Two Person 1 Month"/>
-            <ListBoxItem Content="Two Person 12 Month"/>
-            <ListBoxItem Content="Family 1 Month"/>
-            <ListBoxItem Content="Family 12 Month"/>
+            <ComboBoxItem/>
+            <ComboBoxItem Content="Individual 1 Month"/>
+            <ComboBoxItem Content="Individual 12 Month"/>
+            <ComboBoxItem Content="Two Person 1 Month"/>
+            <ComboBoxItem Content="Two Person 12 Month"/>
+            <ComboBoxItem Content="Family 1 Month"/>
+            <ComboBoxItem Content="Family 12 Month"/>
         </ComboBox>
         <Image x:Name="imgFitnessClubLogo" HorizontalAlignment="Left" Height="50" Margin="16,200,0,0" VerticalAlignment="Top" Width="50" Source="Properties/FitnessClubLogo.png" OpacityMask="White" Opacity="0.25"/>
 

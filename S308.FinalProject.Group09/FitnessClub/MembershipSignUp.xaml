@@ -30,8 +30,19 @@
         <RadioButton x:Name="rboStrength" Content="Strength Training" HorizontalAlignment="Left" Height="17" Margin="189,231,0,0" VerticalAlignment="Top" Width="93" FontSize="8" GroupName="goals" TabIndex="12"/>
         <RadioButton x:Name="rboWeightLoss" Content="Weight Loss" HorizontalAlignment="Left" Height="17" Margin="10,248,0,0" VerticalAlignment="Top" Width="95" FontSize="8" GroupName="goals" TabIndex="13"/>
         <RadioButton x:Name="rboManagement" Content="Weight Management" HorizontalAlignment="Left" Height="17" Margin="110,248,0,0" VerticalAlignment="Top" Width="103" FontSize="8" GroupName="goals" TabIndex="14"/>
-        <ComboBox x:Name="cboCCType" HorizontalAlignment="Left" Height="15" Margin="84,121,0,0" VerticalAlignment="Top" Width="198" TabIndex="3"/>
-        <ComboBox x:Name="cboGender1" HorizontalAlignment="Left" Height="15" Margin="51,188,0,0" VerticalAlignment="Top" Width="73" TabIndex="7"/>
+        <ComboBox x:Name="cboCCType" HorizontalAlignment="Left" Height="15" Margin="84,121,0,0" VerticalAlignment="Top" Width="198" TabIndex="3">
+            <ComboBoxItem x:Name="cbiDefaultCC"/>
+            <ComboBoxItem x:Name="cbiVisa" Content="VISA"/>
+            <ComboBoxItem x:Name="cbiMaster" Content="MasterCard"/>
+            <ComboBoxItem x:Name="cbiAmex" Content="American Express"/>
+            <ComboBoxItem x:Name="cbiDiscover" Content="Discover"/>
+        </ComboBox>
+        <ComboBox x:Name="cboGender1" HorizontalAlignment="Left" Height="15" Margin="51,188,0,0" VerticalAlignment="Top" Width="73" TabIndex="7">
+            <ComboBoxItem x:Name="cbiDefaultGender"/>
+            <ComboBoxItem x:Name="cbiMale" Content="Male"/>
+            <ComboBoxItem x:Name="cbiFemale" Content="Female"/>
+            <ComboBoxItem x:Name="cbiOther" Content="Other"/>
+        </ComboBox>
         <Button x:Name="btnSubmit" Content="Submit" HorizontalAlignment="Left" Height="22" Margin="206,294,0,0" VerticalAlignment="Top" Width="76" Background="#FFEAC6DA" TabIndex="15"/>
         <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Height="22" Margin="125,294,0,0" VerticalAlignment="Top" Width="76" Background="#FFEAC6DA" TabIndex="16"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="89" Margin="10,10,0,0" VerticalAlignment="Top" Width="89" Source="Properties/FitnessClubLogo.png"/>

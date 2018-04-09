@@ -24,11 +24,11 @@
         <TextBox x:Name="txtSubtotal" HorizontalAlignment="Left" Height="23" Margin="320,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="104" Text="$599.88" IsReadOnly="True"/>
         <Label x:Name="lblAdditionalFeatures" Content="ADDITIONAL FEATURES" HorizontalAlignment="Left" Margin="29,118,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="11" Background="#FFEAC6DA"/>
         <Label x:Name="lblPTP" Content="Personal Training Plan: " HorizontalAlignment="Left" Margin="164,117,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="11"/>
-        <TextBox x:Name="txtPersonalTrainingPlan" HorizontalAlignment="Left" Height="23" Margin="292,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" Text="Yes" TabIndex="1" IsReadOnly="True"/>
+        <TextBox x:Name="txtPersonalTrainingPlan" HorizontalAlignment="Left" Height="23" Margin="292,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" Text="Yes" TabIndex="1" IsReadOnly="True" IsTabStop="False"/>
         <Label x:Name="lblLocker" Content="Locker Rental: " HorizontalAlignment="Left" Margin="336,117,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="11"/>
-        <TextBox x:Name="txtLockerRental" HorizontalAlignment="Left" Height="23" Margin="419,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" Text="Yes" TabIndex="2" IsReadOnly="True"/>
+        <TextBox x:Name="txtLockerRental" HorizontalAlignment="Left" Height="23" Margin="419,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" Text="Yes" TabIndex="2" IsReadOnly="True" IsTabStop="False"/>
         <Label x:Name="lblTotal" Content="Total: " HorizontalAlignment="Left" Margin="463,117,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="11"/>
-        <TextBox x:Name="txtTotal" HorizontalAlignment="Left" Height="23" Margin="505,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" Text="$70.00" TabIndex="3" IsReadOnly="True"/>
+        <TextBox x:Name="txtTotal" HorizontalAlignment="Left" Height="23" Margin="505,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" Text="$70.00" TabIndex="3" IsReadOnly="True" IsTabStop="False"/>
         <Image x:Name="imgFitnessClubLogo" HorizontalAlignment="Left" Height="44" Margin="22,162,0,0" VerticalAlignment="Top" Width="44" Source="Properties/FitnessClubLogo.png" OpacityMask="White" Opacity="0.25"/>
 
     </Grid>

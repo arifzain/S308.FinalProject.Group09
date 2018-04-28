@@ -26,6 +26,41 @@ namespace FitnessClub
 
         private void btnQuote_Click(object sender, RoutedEventArgs e)
         {
+            string strMmbershipType;
+           
+
+            DateTime datToday = DateTime.Today;
+
+            //validate customer type selected
+            if (cboMembershipType.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a membership type.");
+                return;
+            }
+
+            strMmbershipType = cboMembershipType.ToString();
+
+            
+            //validate date
+            datStartDate.DisplayDateStart = datToday;
+
+
+            if (datStartDate.SelectedDate < datToday)
+            {
+                MessageBox.Show("Please select a date that is not in the past");
+                return;
+            }
+
+
+
+
+
+
+            
+            
+            
+            
+
             MembershipQuote newWindow = new MembershipQuote();
             newWindow.Show();
             this.Close();

@@ -26,8 +26,11 @@ namespace FitnessClub
 
         private void btnQuote_Click(object sender, RoutedEventArgs e)
         {
-            string strMmbershipType;
-           
+            string strMembershipType, strSelectedDate, strPersonalTraining, strLockerRental;
+            bool? bolPersonalTraining, bolLockerRental;
+
+            bolPersonalTraining = chbPersonalTrainingPlan.IsChecked;
+            bolLockerRental = chbLockerRental.IsChecked;
 
             DateTime datToday = DateTime.Today;
 
@@ -38,32 +41,62 @@ namespace FitnessClub
                 return;
             }
 
-            strMmbershipType = cboMembershipType.ToString();
+            strMembershipType = cboMembershipType.Text.ToString();
 
-            
+
             //validate date
-            datStartDate.DisplayDateStart = datToday;
 
+            dtpStartDate.DisplayDateStart = datToday;
 
-            if (datStartDate.SelectedDate < datToday)
+            DateTime? datStartDate = dtpStartDate.SelectedDate;
+
+            if (datStartDate < datToday)
             {
                 MessageBox.Show("Please select a date that is not in the past");
                 return;
+            }
+
+            strSelectedDate = String.Format("{0:MM/dd/yyyy}", datStartDate);
+
+
+
+            if (bolPersonalTraining == true)
+            {
+                strPersonalTraining = "Yes";
+            }
+            else if(bolPersonalTraining == false)
+            {
+                strPersonalTraining = "No";
+            }
+            else
+            {
+                strPersonalTraining = "";
+            }
+
+            if (bolLockerRental == true)
+            {
+                strLockerRental = "Yes";
+            }
+            else
+            {
+                strLockerRental = "No";
             }
 
 
 
 
 
+            Quote quote = new Quote(strMembershipType, strSelectedDate, strPersonalTraining, strLockerRental);
 
-            
-            
-            
-            
+            MembershipQuote memberQuote = new MembershipQuote(quote);
 
-            MembershipQuote newWindow = new MembershipQuote();
-            newWindow.Show();
+            memberQuote.Show();
+
             this.Close();
+            
+            
+            
+
         }
 
     }

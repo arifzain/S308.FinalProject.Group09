@@ -24,7 +24,7 @@
             <ComboBoxItem Content="Family 12 Month"/>
         </ComboBox>
         <Image x:Name="imgFitnessClubLogo" HorizontalAlignment="Left" Height="50" Margin="16,214,0,0" VerticalAlignment="Top" Width="50" Source="Properties/FitnessClubLogo.png" OpacityMask="White" Opacity="0.25"/>
-        <DatePicker x:Name="datStartDate" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="133,151,0,0" Text="hi" Background="#FFEAC6DA"/>
+        <DatePicker x:Name="dtpStartDate" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="133,151,0,0" Text="hi" Background="{x:Null}"/>
 
     </Grid>
 </Window>

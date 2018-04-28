@@ -14,22 +14,23 @@
         <Label x:Name="lblMembershipType" Content="Membership Type" HorizontalAlignment="Left" Margin="93,183,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblSelectedMembershipType" Content="Selected Membership Type" HorizontalAlignment="Left" Margin="44,216,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblMembershipAvailability" Content="Currently Being Offered?" HorizontalAlignment="Left" Margin="57,247,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblselectedMebershipTypeDisp" Content="Individual 1 Month" HorizontalAlignment="Left" Margin="254,216,0,0" VerticalAlignment="Top" Width="219" TabIndex="2"/>
+        <Label x:Name="lblselectedMebershipTypeDisp" Content="" HorizontalAlignment="Left" Margin="254,216,0,0" VerticalAlignment="Top" Width="219" TabIndex="2"/>
         <Label x:Name="lblCurrentPrice" Content="Current Price" HorizontalAlignment="Left" Margin="119,278,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cbxmembershipType" HorizontalAlignment="Left" Margin="254,185,0,0" VerticalAlignment="Top" Width="219" TabIndex="1">
-            <ComboBoxItem x:Name="cbiDefault"/>
-            <ComboBoxItem x:Name="cbiInd1" Content="Individual 1 Month" HorizontalAlignment="Left" Width="118" IsSelected="True"/>
+            <ComboBoxItem x:Name="cbiInd1" Content="Individual 1 Month" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem x:Name="cbiInd12" Content="Individual 12 Month"/>
             <ComboBoxItem x:Name="cbiTwo1" Content="Two Person 1 Month"/>
             <ComboBoxItem x:Name="cbiTwo12" Content="Two Person 12 Month"/>
             <ComboBoxItem x:Name="cbiFamily1" Content="Family 1 Month"/>
             <ComboBoxItem x:Name="cbiFamily12" Content="Family 12 Month"/>
         </ComboBox>
-        <RadioButton x:Name="radYes" Content="Yes" HorizontalAlignment="Left" Margin="254,253,0,0" VerticalAlignment="Top" IsChecked="True" TabIndex="3"/>
-        <RadioButton x:Name="radNo" Content="No" HorizontalAlignment="Left" Margin="315,253,0,0" VerticalAlignment="Top" TabIndex="4"/>
         <TextBox x:Name="txtCurrentPRice" HorizontalAlignment="Left" Height="23" Margin="254,282,0,0" TextWrapping="Wrap" Text="$9.99" VerticalAlignment="Top" Width="219" TabIndex="5"/>
         <Button x:Name="btnMainMenu" Content="Main Menu" HorizontalAlignment="Left" Margin="299,332,0,0" VerticalAlignment="Top" Width="75" TabIndex="7" Background="#FFEAC6DA" Click="btnMainMenu_Click"/>
         <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="398,332,0,0" VerticalAlignment="Top" Width="75" TabIndex="6" Background="#FFEAC6DA"/>
+        <ComboBox x:Name="cbxmembershipType_Copy" HorizontalAlignment="Left" Margin="254,249,0,0" VerticalAlignment="Top" Width="219" TabIndex="1">
+            <ComboBoxItem Content="Yes"/>
+            <ComboBoxItem Content="No"/>
+        </ComboBox>
 
     </Grid>
 </Window>

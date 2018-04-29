@@ -28,6 +28,7 @@ namespace FitnessClub
             InitializeComponent();
         }
 
+        //Open MembershipSales
         private void btnMembershipSales_Click(object sender, RoutedEventArgs e)
         {
             MembershipSales newWindow = new MembershipSales();
@@ -35,6 +36,7 @@ namespace FitnessClub
             this.Close();
         }
 
+        //Open PricingManagement
         private void btnPricingManagement_Click(object sender, RoutedEventArgs e)
         {
             PricingManagement newWindow = new PricingManagement();
@@ -42,6 +44,7 @@ namespace FitnessClub
             this.Close();
         }
 
+        //Open MembershipInformation
         private void btnMemberInformation_Click(object sender, RoutedEventArgs e)
         {
             MemberInformation newWindow = new MemberInformation();

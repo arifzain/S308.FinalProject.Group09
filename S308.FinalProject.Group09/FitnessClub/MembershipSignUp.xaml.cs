@@ -164,9 +164,7 @@ namespace FitnessClub
             //       c. if the result is divisible by 10 the card number is a valid number. Set the valid variable
             //6. Show the appropriate result
             //       'a. if valid
-            //           - display the logo for the card
-            //           - set the text of the result label to Credit Card Is Valid
-            //           - set the text color to green
+            //           - change the card type to the correct type
             //       b. else
             //           - set the text of the result label to Credit Card Is Not Valid
             //           - set the text color to red

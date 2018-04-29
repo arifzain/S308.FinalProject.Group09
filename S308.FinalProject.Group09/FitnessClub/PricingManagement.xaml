@@ -12,9 +12,7 @@
         <Label x:Name="lblFitnesClubPricingManagement" Content="FITNESS CLUB PRICING MANAGEMENT" HorizontalAlignment="Left" Margin="144,44,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14.667"/>
         <Label x:Name="lblInstructions" Content="Please select a membership type from the dropdown box. Then indicate whether &#xA;the membership type is still being offered and an updated price for the membership &#xA;type selected. Finally, click &quot;Update&quot; to save the changes. " HorizontalAlignment="Left" Margin="44,110,0,0" VerticalAlignment="Top" Width="460" Height="58" Background="#FFEAC6DA"/>
         <Label x:Name="lblMembershipType" Content="Membership Type" HorizontalAlignment="Left" Margin="93,183,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblSelectedMembershipType" Content="Selected Membership Type" HorizontalAlignment="Left" Margin="44,216,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblMembershipAvailability" Content="Currently Being Offered?" HorizontalAlignment="Left" Margin="57,247,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblselectedMebershipTypeDisp" Content="" HorizontalAlignment="Left" Margin="254,216,0,0" VerticalAlignment="Top" Width="219" TabIndex="2"/>
         <Label x:Name="lblCurrentPrice" Content="Current Price" HorizontalAlignment="Left" Margin="119,278,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cbxmembershipType" HorizontalAlignment="Left" Margin="254,185,0,0" VerticalAlignment="Top" Width="219" TabIndex="1">
             <ComboBoxItem x:Name="cbiInd1" Content="Individual 1 Month" HorizontalAlignment="Left" Width="118"/>
@@ -31,6 +29,7 @@
             <ComboBoxItem Content="Yes"/>
             <ComboBoxItem Content="No"/>
         </ComboBox>
+        <ListBox x:Name="lsbOutput" HorizontalAlignment="Left" Height="100" Margin="14,247,0,0" VerticalAlignment="Top" Width="184"/>
 
     </Grid>
 </Window>

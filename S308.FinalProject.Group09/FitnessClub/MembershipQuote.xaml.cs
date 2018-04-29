@@ -193,10 +193,6 @@ namespace FitnessClub
             strTotal = dblTotal.ToString("C2");
 
 
-
-
-
-
             txtMembershipType.Text = strMembershipTypeTrim;
             txtStartDate.Text = InfoFromPrevWindow.StartDate;
             txtEndDate.Text = strEndDate;

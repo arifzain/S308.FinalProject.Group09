@@ -27,16 +27,18 @@ namespace FitnessClub
         {
             InitializeComponent();
 
-            priceList = new List<Pricing>();
-            string strFilePath = GetFilePath("json");
+            string strFilePath = GetFilePath("txt");
 
             try
             {
                 StreamReader reader = new StreamReader(strFilePath);
-                string jsonData = reader.ReadToEnd();
-                reader.Close();
+                string price = reader.ReadLine();
 
-                priceList = JsonConvert.DeserializeObject<List<Pricing>>(jsonData);
+                while (price != null)
+                {
+                    lsbOutput.Items.Add(price);
+                    price = reader.ReadLine();
+                }
             }
 
             catch (Exception ex)
@@ -44,8 +46,6 @@ namespace FitnessClub
                 MessageBox.Show("Error in import process: " + ex.Message);
             }
 
-            //show message when the application is opened
-            MessageBox.Show("Price data successfully imported.");
 
             Pricing pricingNew = new Pricing();
         }
@@ -53,7 +53,7 @@ namespace FitnessClub
 
         private string GetFilePath(string extension)
         {
-            string strFilePath = @"..\..\..\Data\Pricing";
+            string strFilePath = @"..\..\..\..\Data\Pricing";
             string strTimestamp = DateTime.Now.Ticks.ToString();
 
             strFilePath += "." + extension;

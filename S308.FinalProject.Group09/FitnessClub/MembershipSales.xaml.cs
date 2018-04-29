@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
-using Newtonsoft.Json;
 
 namespace FitnessClub
 {
@@ -118,6 +117,7 @@ namespace FitnessClub
             MembershipQuote memberQuote = new MembershipQuote(quote);
 
             memberQuote.Show();
+
 
             this.Close();
             

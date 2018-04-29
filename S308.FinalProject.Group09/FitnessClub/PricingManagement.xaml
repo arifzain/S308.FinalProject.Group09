@@ -5,31 +5,54 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitnessClub"
         mc:Ignorable="d"
-        Title="Pricing Management" Height="400" Width="533.249" WindowStartupLocation="CenterScreen">
+        Title="Pricing Management" Height="656.5" Width="533.249" WindowStartupLocation="CenterScreen">
     <Grid>
         <Image x:Name="imgFitnessClubLogo" HorizontalAlignment="Left" Height="100" Margin="44,10,0,0" VerticalAlignment="Top" Width="100" Source="Properties/FitnessClubLogo.png"/>
 
         <Label x:Name="lblFitnesClubPricingManagement" Content="FITNESS CLUB PRICING MANAGEMENT" HorizontalAlignment="Left" Margin="144,44,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14.667"/>
         <Label x:Name="lblInstructions" Content="Please select a membership type from the dropdown box. Then indicate whether &#xA;the membership type is still being offered and an updated price for the membership &#xA;type selected. Finally, click &quot;Update&quot; to save the changes. " HorizontalAlignment="Left" Margin="44,110,0,0" VerticalAlignment="Top" Width="460" Height="58" Background="#FFEAC6DA"/>
-        <Label x:Name="lblMembershipType" Content="Membership Type" HorizontalAlignment="Left" Margin="93,183,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblMembershipAvailability" Content="Currently Being Offered?" HorizontalAlignment="Left" Margin="57,247,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblCurrentPrice" Content="Current Price" HorizontalAlignment="Left" Margin="119,278,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cbxmembershipType" HorizontalAlignment="Left" Margin="254,185,0,0" VerticalAlignment="Top" Width="219" TabIndex="1">
-            <ComboBoxItem x:Name="cbiInd1" Content="Individual 1 Month" HorizontalAlignment="Left" Width="118"/>
-            <ComboBoxItem x:Name="cbiInd12" Content="Individual 12 Month"/>
-            <ComboBoxItem x:Name="cbiTwo1" Content="Two Person 1 Month"/>
-            <ComboBoxItem x:Name="cbiTwo12" Content="Two Person 12 Month"/>
-            <ComboBoxItem x:Name="cbiFamily1" Content="Family 1 Month"/>
-            <ComboBoxItem x:Name="cbiFamily12" Content="Family 12 Month"/>
-        </ComboBox>
-        <TextBox x:Name="txtCurrentPRice" HorizontalAlignment="Left" Height="23" Margin="254,282,0,0" TextWrapping="Wrap" Text="$9.99" VerticalAlignment="Top" Width="219" TabIndex="5"/>
-        <Button x:Name="btnMainMenu" Content="Main Menu" HorizontalAlignment="Left" Margin="299,332,0,0" VerticalAlignment="Top" Width="75" TabIndex="7" Background="#FFEAC6DA" Click="btnMainMenu_Click"/>
-        <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="398,332,0,0" VerticalAlignment="Top" Width="75" TabIndex="6" Background="#FFEAC6DA"/>
-        <ComboBox x:Name="cbxmembershipType_Copy" HorizontalAlignment="Left" Margin="254,249,0,0" VerticalAlignment="Top" Width="219" TabIndex="1">
+        <Button x:Name="btnMainMenu" Content="Main Menu" HorizontalAlignment="Left" Margin="330,422,0,0" VerticalAlignment="Top" Width="75" TabIndex="7" Background="#FFEAC6DA" Click="btnMainMenu_Click"/>
+        <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="429,422,0,0" VerticalAlignment="Top" Width="75" TabIndex="6" Background="#FFEAC6DA" Click="btnUpdate_Click"/>
+        <Label x:Name="lblInd1" Content="Individual 1 Month:" HorizontalAlignment="Left" Margin="44,226,0,0" VerticalAlignment="Top" Width="144" HorizontalContentAlignment="Center"/>
+        <Label x:Name="lblInd12" Content="Family 12 Month:" HorizontalAlignment="Left" Margin="44,381,0,0" VerticalAlignment="Top" Width="144" HorizontalContentAlignment="Center"/>
+        <Label x:Name="lblTwo1" Content="Individual 1 Month:" HorizontalAlignment="Left" Margin="44,257,0,0" VerticalAlignment="Top" Width="144" HorizontalContentAlignment="Center"/>
+        <Label x:Name="lblTwo12" Content="Two Person 1 Month:" HorizontalAlignment="Left" Margin="44,288,0,0" VerticalAlignment="Top" Width="144" HorizontalContentAlignment="Center"/>
+        <Label x:Name="lblFam1" Content="Two Person 1 Month:" HorizontalAlignment="Left" Margin="44,319,0,0" VerticalAlignment="Top" Width="144" HorizontalContentAlignment="Center"/>
+        <Label x:Name="lblFam12" Content="Family 1 Month:" HorizontalAlignment="Left" Margin="44,350,0,0" VerticalAlignment="Top" Width="144" HorizontalContentAlignment="Center"/>
+        <ComboBox x:Name="cboInd1" HorizontalAlignment="Left" Margin="193,227,0,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" SelectedIndex="0">
             <ComboBoxItem Content="Yes"/>
             <ComboBoxItem Content="No"/>
         </ComboBox>
-        <ListBox x:Name="lsbOutput" HorizontalAlignment="Left" Height="100" Margin="14,236,0,0" VerticalAlignment="Top" Width="184"/>
+        <ComboBox x:Name="cboInd12" HorizontalAlignment="Left" Margin="193,258,0,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" SelectedIndex="0">
+            <ComboBoxItem Content="Yes" Width="118"/>
+            <ComboBoxItem Content="No" Width="118"/>
+        </ComboBox>
+        <ComboBox x:Name="cboTwo1" HorizontalAlignment="Left" Margin="193,289,0,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" SelectedIndex="0">
+            <ComboBoxItem Content="Yes" Width="118"/>
+            <ComboBoxItem Content="No" Width="118"/>
+        </ComboBox>
+        <ComboBox x:Name="cboTwo12" HorizontalAlignment="Left" Margin="193,320,0,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" SelectedIndex="0">
+            <ComboBoxItem Content="Yes" Width="118"/>
+            <ComboBoxItem Content="No" Width="118"/>
+        </ComboBox>
+        <ComboBox x:Name="cboFam1" HorizontalAlignment="Left" Margin="193,351,0,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" SelectedIndex="0">
+            <ComboBoxItem Content="Yes" Width="118"/>
+            <ComboBoxItem Content="No" Width="118"/>
+        </ComboBox>
+        <ComboBox x:Name="cboFam12" HorizontalAlignment="Left" Margin="192,382,0,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" SelectedIndex="0">
+            <ComboBoxItem Content="Yes" Width="118"/>
+            <ComboBoxItem Content="No" Width="118"/>
+        </ComboBox>
+        <TextBox x:Name="txtInd1" HorizontalAlignment="Left" Height="23" Margin="330,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.IsSharedSizeScope="True" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtInd12" HorizontalAlignment="Left" Height="23" Margin="330,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.IsSharedSizeScope="True" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtTwo1" HorizontalAlignment="Left" Height="23" Margin="330,288,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.IsSharedSizeScope="True" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtTwo12" HorizontalAlignment="Left" Height="23" Margin="330,319,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.IsSharedSizeScope="True" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtFam1" HorizontalAlignment="Left" Height="23" Margin="330,350,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.IsSharedSizeScope="True" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtFam12" HorizontalAlignment="Left" Height="23" Margin="330,381,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.IsSharedSizeScope="True" HorizontalContentAlignment="Center"/>
+        <Label x:Name="label" Content="Membership Type" HorizontalAlignment="Left" Margin="44,199,0,0" VerticalAlignment="Top" Width="144" HorizontalContentAlignment="Center"/>
+        <Label x:Name="label1" Content="Availability" HorizontalAlignment="Left" Margin="193,199,0,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center"/>
+        <Label x:Name="label2" Content="Price" HorizontalAlignment="Left" Margin="330,200,0,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" Grid.IsSharedSizeScope="True"/>
+        <ListBox x:Name="lsbOutput" HorizontalAlignment="Left" Height="145" Margin="74,456,0,0" VerticalAlignment="Top" Width="376"/>
 
     </Grid>
 </Window>

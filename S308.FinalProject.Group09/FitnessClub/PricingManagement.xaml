@@ -43,12 +43,12 @@
             <ComboBoxItem Content="Yes" Width="118"/>
             <ComboBoxItem Content="No" Width="118"/>
         </ComboBox>
-        <TextBox x:Name="txtInd1" HorizontalAlignment="Left" Height="23" Margin="330,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.IsSharedSizeScope="True" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="txtInd12" HorizontalAlignment="Left" Height="23" Margin="330,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.IsSharedSizeScope="True" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="txtTwo1" HorizontalAlignment="Left" Height="23" Margin="330,288,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.IsSharedSizeScope="True" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="txtTwo12" HorizontalAlignment="Left" Height="23" Margin="330,319,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.IsSharedSizeScope="True" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="txtFam1" HorizontalAlignment="Left" Height="23" Margin="330,350,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.IsSharedSizeScope="True" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="txtFam12" HorizontalAlignment="Left" Height="23" Margin="330,381,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.IsSharedSizeScope="True" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtInd1" HorizontalAlignment="Left" Height="23" Margin="330,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.IsSharedSizeScope="True" HorizontalContentAlignment="Center" Text="9.99"/>
+        <TextBox x:Name="txtInd12" HorizontalAlignment="Left" Height="23" Margin="330,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.IsSharedSizeScope="True" HorizontalContentAlignment="Center" Text="100.00"/>
+        <TextBox x:Name="txtTwo1" HorizontalAlignment="Left" Height="23" Margin="330,288,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.IsSharedSizeScope="True" HorizontalContentAlignment="Center" Text="14.99"/>
+        <TextBox x:Name="txtTwo12" HorizontalAlignment="Left" Height="23" Margin="330,319,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.IsSharedSizeScope="True" HorizontalContentAlignment="Center" Text="150.00"/>
+        <TextBox x:Name="txtFam1" HorizontalAlignment="Left" Height="23" Margin="330,350,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.IsSharedSizeScope="True" HorizontalContentAlignment="Center" Text="19.99"/>
+        <TextBox x:Name="txtFam12" HorizontalAlignment="Left" Height="23" Margin="330,381,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.IsSharedSizeScope="True" HorizontalContentAlignment="Center" Text="200.00"/>
         <Label x:Name="label" Content="Membership Type" HorizontalAlignment="Left" Margin="44,199,0,0" VerticalAlignment="Top" Width="144" HorizontalContentAlignment="Center"/>
         <Label x:Name="label1" Content="Availability" HorizontalAlignment="Left" Margin="193,199,0,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center"/>
         <Label x:Name="label2" Content="Price" HorizontalAlignment="Left" Margin="330,200,0,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" Grid.IsSharedSizeScope="True"/>

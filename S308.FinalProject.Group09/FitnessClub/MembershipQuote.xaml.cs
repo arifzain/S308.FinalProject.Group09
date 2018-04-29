@@ -42,6 +42,8 @@ namespace FitnessClub
                 reader.Close();
 
                 priceList = JsonConvert.DeserializeObject<List<Pricing>>(jsonData);
+
+               
             }
 
             catch (Exception ex)
@@ -52,7 +54,6 @@ namespace FitnessClub
             //show message when the application is opened
             MessageBox.Show("Price data successfully imported.");
 
-            Pricing pricingNew = new Pricing();
         }
 
         public MembershipQuote(Quote info)
@@ -63,31 +64,73 @@ namespace FitnessClub
             //assigning the property from the member info class that was passed into this overridden constructor
             InfoFromPrevWindow = info;
 
-            Output();    
-        }
+            string strStartDate, strEndDate, strMembershipType, strMembershipTypeTrim, strMonthlyCost, strSubtotal;
+            double dblMonthlyCost, dblSubtotal, dblTotal;
 
-        private void Output()
-        {
+            strMembershipTypeTrim = InfoFromPrevWindow.MembershipType.ToString();
+            strMembershipType = InfoFromPrevWindow.MembershipType.ToString();
 
-            string strStartDate, strEndDate;
-                
+
+            strMembershipTypeTrim = strMembershipTypeTrim.Substring(0, strMembershipTypeTrim.IndexOf(":"));
+            strMonthlyCost = strMembershipType.Substring(strMembershipType.IndexOf(":") + 1).Trim();
+
+            dblMonthlyCost = Convert.ToDouble(strMonthlyCost);
+
             strStartDate = InfoFromPrevWindow.StartDate;
-            DateTime datStartDate, datEndDate; 
+            DateTime datStartDate;
+
             datStartDate = DateTime.Parse(strStartDate);
-            datEndDate = datStartDate.AddYears(1);
+            dblSubtotal = 0;
+        
+            if(strMembershipTypeTrim == "Individual 1 Month")
+            {
+                datStartDate = datStartDate.AddMonths(1);
+                dblSubtotal = dblMonthlyCost;
+            }
+            else if (strMembershipTypeTrim == "Individual 12 Month")
+            {
+                datStartDate = datStartDate.AddYears(1);
+                dblSubtotal = dblMonthlyCost*12;
+            }
+            else if (strMembershipTypeTrim == "Two Person 1 Month")
+            {
+                datStartDate = datStartDate.AddMonths(1);
+                dblSubtotal = dblMonthlyCost;
+            }
+            else if (strMembershipTypeTrim == "Two Person 12 Month")
+            {
+                datStartDate = datStartDate.AddYears(1);
+                dblSubtotal = dblMonthlyCost*12;
+            }
+            else if (strMembershipTypeTrim == "Family 1 Month")
+            {
+                datStartDate = datStartDate.AddMonths(1);
+                dblSubtotal = dblMonthlyCost;
+            }
+            else if (strMembershipTypeTrim == "Family 12 Month")
+            {
+                datStartDate = datStartDate.AddYears(1);
+                dblSubtotal = dblMonthlyCost*12;
+            }
 
-            strEndDate = String.Format("{0:MM/dd/yyyy}", datEndDate);
+            strSubtotal = dblSubtotal.ToString();
+            
+
+
+
+            strEndDate = string.Format("{0:MM/dd/yyyy}", datStartDate);
 
 
 
 
-            txtMembershipType.Text = InfoFromPrevWindow.MembershipType;
+
+            txtMembershipType.Text = strMembershipTypeTrim;
             txtStartDate.Text = InfoFromPrevWindow.StartDate;
-            txtEndDate.Text = strEndDate; strSelectedDate = String.Format("{0:MM/dd/yyyy}", datStartDate);
+            txtEndDate.Text = strEndDate;
             txtPersonalTrainingPlan.Text = InfoFromPrevWindow.PersonalTraining;
-            txtLockerRental.Text = InfoFromPrevWindow.LockerRental; 
-
-
+            txtLockerRental.Text = InfoFromPrevWindow.LockerRental;
+            txtMembershipCost.Text = strMonthlyCost;
+            txtSubtotal.Text = strSubtotal;
         }
 
         private string GetFilePath(string extension)

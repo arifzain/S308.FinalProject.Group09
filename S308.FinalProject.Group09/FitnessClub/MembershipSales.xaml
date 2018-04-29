@@ -5,24 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitnessClub"
         mc:Ignorable="d"
-        Title="Membership Sales" Height="350" Width="320" WindowStartupLocation="CenterScreen">
+        Title="Membership Sales" Height="350" Width="344.667" WindowStartupLocation="CenterScreen">
     <Grid>
         <Label x:Name="lblNewClient" Content="NEW PROSPECTIVE MEMBER" HorizontalAlignment="Left" Height="27" Margin="10,10,0,0" VerticalAlignment="Top" Width="196" FontWeight="Bold"/>
         <Label x:Name="lblType" Content="Membership Type:" HorizontalAlignment="Left" Height="27" Margin="16,113,0,0" VerticalAlignment="Top" Width="110"/>
         <Label x:Name="lblStartDate" Content="Start Date:" HorizontalAlignment="Left" Height="23" Margin="60,150,0,0" VerticalAlignment="Top" Width="66"/>
         <Label x:Name="lblAdditionalFeatures" Content="Additional Features:" HorizontalAlignment="Left" Height="27" Margin="11,187,0,0" VerticalAlignment="Top" Width="117"/>
-        <Button x:Name="btnQuote" Content="Quote" HorizontalAlignment="Left" Height="26" Margin="195,254,0,0" VerticalAlignment="Top" Width="81" Background="#FFEAC6DA" TabIndex="5" Click="btnQuote_Click"/>
+        <Button x:Name="btnQuote" Content="Quote" HorizontalAlignment="Left" Height="26" Margin="238,257,0,0" VerticalAlignment="Top" Width="81" Background="#FFEAC6DA" TabIndex="5" Click="btnQuote_Click"/>
         <CheckBox x:Name="chbPersonalTrainingPlan" Content="Personal Training Plan" HorizontalAlignment="Left" Height="20" Margin="131,193,0,0" VerticalAlignment="Top" Width="145" TabIndex="3"/>
         <CheckBox x:Name="chbLockerRental" Content="Locker Rental" HorizontalAlignment="Left" Height="22" Margin="131,219,0,0" VerticalAlignment="Top" Width="128" TabIndex="4"/>
-        <TextBlock x:Name="txtSignUpInstructions" HorizontalAlignment="Left" Height="72" Margin="15,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="261" Background="#FFEAC6DA"><Run Text="Input the membership type and start date, "/><Run Text="then add any additional features. Then click the &quot;Quote&quot; button to receive the potential customer's membership quote."/></TextBlock>
-        <ComboBox x:Name="cboMembershipType" HorizontalAlignment="Left" Height="24" Margin="133,113,0,0" VerticalAlignment="Top" Width="126" TabIndex="1">
-            <ComboBoxItem Content="Individual 1 Month"/>
-            <ComboBoxItem Content="Individual 12 Month"/>
-            <ComboBoxItem Content="Two Person 1 Month"/>
-            <ComboBoxItem Content="Two Person 12 Month"/>
-            <ComboBoxItem Content="Family 1 Month"/>
-            <ComboBoxItem Content="Family 12 Month"/>
-        </ComboBox>
+        <TextBlock x:Name="txtSignUpInstructions" HorizontalAlignment="Left" Height="59" Margin="15,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="304" Background="#FFEAC6DA"><Run Text="Input the membership type and start date, "/><Run Text="then add any additional features. Then click the &quot;Quote&quot; button to receive the potential customer's membership quote."/></TextBlock>
+        <ComboBox x:Name="cboMembershipType" HorizontalAlignment="Left" Height="24" Margin="133,113,0,0" VerticalAlignment="Top" Width="186" TabIndex="1"/>
         <Image x:Name="imgFitnessClubLogo" HorizontalAlignment="Left" Height="50" Margin="16,214,0,0" VerticalAlignment="Top" Width="50" Source="Properties/FitnessClubLogo.png" OpacityMask="White" Opacity="0.25"/>
         <DatePicker x:Name="dtpStartDate" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="133,151,0,0" Text="hi" Background="{x:Null}"/>
 

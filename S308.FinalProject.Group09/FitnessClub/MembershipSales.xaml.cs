@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace FitnessClub
 {
@@ -22,6 +24,32 @@ namespace FitnessClub
         public MembershipSales()
         {
             InitializeComponent();
+
+            string strFilePath = GetFilePath("txt");
+
+            try
+            {
+                StreamReader reader = new StreamReader(strFilePath);
+                string price = reader.ReadLine();
+
+                while (price != null)
+                {
+                    cboMembershipType.Items.Add(price);
+                    price = reader.ReadLine();
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in import process: " + ex.Message);
+            }
+
+            //show message when the application is opened
+            MessageBox.Show("Price data successfully imported.");
+
+         
+
+            Pricing pricingNew = new Pricing();
         }
 
         private void btnQuote_Click(object sender, RoutedEventArgs e)
@@ -77,12 +105,15 @@ namespace FitnessClub
             {
                 strLockerRental = "Yes";
             }
-            else
+            else if (bolLockerRental == false)
             {
                 strLockerRental = "No";
             }
-
-
+            else
+            {
+                strLockerRental = "";
+            }
+            
 
 
 
@@ -97,6 +128,17 @@ namespace FitnessClub
             
             
 
+        }
+
+
+        private string GetFilePath(string extension)
+        {
+            string strFilePath = @"..\..\..\..\Data\Pricing";
+            string strTimestamp = DateTime.Now.Ticks.ToString();
+
+            strFilePath += "." + extension;
+
+            return strFilePath;
         }
 
     }

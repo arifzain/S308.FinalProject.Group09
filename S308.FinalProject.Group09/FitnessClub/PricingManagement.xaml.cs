@@ -54,11 +54,6 @@ namespace FitnessClub
 
 
 
-
-
-
-
-
         }
 
         private void btnMainMenu_Click(object sender, RoutedEventArgs e)
@@ -203,6 +198,7 @@ namespace FitnessClub
 
 
             strOutput = strOutput1 + strOutput2 + strOutput3 + strOutput4 + strOutput5 + strOutput6;
+
 
 
             string strFilePath = GetFilePath("txt");

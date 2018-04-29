@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace FitnessClub
 {
@@ -18,10 +20,41 @@ namespace FitnessClub
     /// Interaction logic for MemberInformation.xaml
     /// </summary>
     public partial class MemberInformation : Window
+
     {
+        List<Members> memberList;
         public MemberInformation()
         {
             InitializeComponent();
+
+            memberList = new List<Members>();
+
+            dtgMembersOutput.ItemsSource = memberList;
+
+            //import data from json file and deserialize
+            string strFilePath = GetFilePath("json");
+
+            try
+            {
+                StreamReader reader = new StreamReader(strFilePath);
+                string jsonData = reader.ReadToEnd();
+                reader.Close();
+
+                memberList = JsonConvert.DeserializeObject<List<Members>>(jsonData);
+
+                dtgMembersOutput.ItemsSource = memberList;
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in import process: " + ex.Message);
+            }
+
+            dtgMembersOutput.Items.Refresh();
+
+            //show message when the application is opened
+            MessageBox.Show("Customer data successfully imported.");
+
         }
 
         private void btnMain_Click(object sender, RoutedEventArgs e)
@@ -33,6 +66,8 @@ namespace FitnessClub
 
         private void btnFind_Click(object sender, RoutedEventArgs e)
         {
+            
+
             double dblPhone;
 
             string strLName, strPhone, strEmail;
@@ -102,6 +137,17 @@ namespace FitnessClub
                 return;
             }
         }
+
+        private string GetFilePath(string extension)
+        {
+            string strFilePath = @"..\..\..\..\Data\Members";
+            string strTimestamp = DateTime.Now.Ticks.ToString();
+
+            strFilePath += "." + extension;
+
+            return strFilePath;
+        }
+
         //clear button function
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
@@ -110,27 +156,6 @@ namespace FitnessClub
             txtPhone.Text = "";
 
             //clearing the record search results as well
-
-            txtMembershipType.Text = "";
-            txtStartDate.Text = "";
-            txtEndDate.Text = "";
-            txtMembershipCost.Text = "";
-            txtSubtotal.Text = "";
-            txtPersonalTrainingPlan.Text = "";
-            txtLockerRental.Text = "";
-            txtTotal.Text = "";
-            txtFName.Text = "";
-            txtLName.Text = "";
-            txtMemType.Text = "";
-            txtExpDate.Text = "";
-            txtAddFeatures.Text = "";
-            txtTotalCost.Text = "";
-            txtPhoneNum.Text = "";
-            txtEmailAdd.Text = "";
-            txtGender.Text = "";
-            txtAge.Text = "";
-            txtWeight.Text = "";
-            txtFitnessGoal.Text = "";
         }
     }
 }

@@ -7,28 +7,28 @@
         mc:Ignorable="d"
         Title="MembershipQuote" Height="243.842" Width="644.262" WindowStartupLocation="CenterScreen">
     <Grid>
+        <Rectangle x:Name="recBorder" HorizontalAlignment="Left" Height="124" Margin="22,38,0,0" Stroke="Black" VerticalAlignment="Top" Width="595"/>
         <Label x:Name="lblQuote" Content="MEMBERSHIP QUOTE" HorizontalAlignment="Left" Height="28" Margin="22,10,0,0" VerticalAlignment="Top" Width="140" FontWeight="Bold"/>
-        <Label x:Name="lblPerMonth" Content="per month" HorizontalAlignment="Left" Height="27" Margin="180,77,0,0" VerticalAlignment="Top" Width="72"/>
+        <Label x:Name="lblPerMonth" Content="per month" HorizontalAlignment="Left" Height="27" Margin="210,76,0,0" VerticalAlignment="Top" Width="72"/>
         <Button x:Name="btnMainMenu" Content="Main Menu" HorizontalAlignment="Left" Height="20" Margin="449,181,0,0" VerticalAlignment="Top" Width="74" Background="#FFEAC6DA" TabIndex="2" Click="btnMainMenu_Click"/>
         <Button x:Name="btnSignUp" Content="Sign Up" HorizontalAlignment="Left" Height="20" Margin="543,181,0,0" VerticalAlignment="Top" Width="74" Background="#FFEAC6DA" TabIndex="1" Click="btnSignUp_Click"/>
-        <Rectangle x:Name="recBorder" HorizontalAlignment="Left" Height="124" Margin="22,38,0,0" Stroke="Black" VerticalAlignment="Top" Width="595"/>
         <Label x:Name="lblMembershipType" Content="Membership Type: " HorizontalAlignment="Left" Margin="28,52,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="11"/>
-        <TextBox x:Name="txtMembershipType" HorizontalAlignment="Left" Height="23" Margin="137,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Text="Individual 1 Month" IsReadOnly="True" IsTabStop="False"/>
-        <Label x:Name="lblStartDate" Content="Start Date: " HorizontalAlignment="Left" Margin="264,52,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="11"/>
-        <TextBox x:Name="txtStartDate" HorizontalAlignment="Left" Height="23" Margin="332,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="104" Text="02/01/2018" IsReadOnly="True" IsTabStop="False"/>
-        <Label x:Name="lblEndDate" Content="End Date: " HorizontalAlignment="Left" Margin="435,52,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="11"/>
-        <TextBox x:Name="txtEndDate" HorizontalAlignment="Left" Height="23" Margin="496,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="104" Text="02/01/2019" IsReadOnly="True" IsTabStop="False"/>
+        <TextBox x:Name="txtMembershipType" HorizontalAlignment="Left" Height="23" Margin="137,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" IsReadOnly="True" IsTabStop="False"/>
+        <Label x:Name="lblStartDate" Content="Start Date: " HorizontalAlignment="Left" Margin="287,52,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="11"/>
+        <TextBox x:Name="txtStartDate" HorizontalAlignment="Left" Height="23" Margin="355,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" IsReadOnly="True" IsTabStop="False"/>
+        <Label x:Name="lblEndDate" Content="End Date: " HorizontalAlignment="Left" Margin="447,52,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="11"/>
+        <TextBox x:Name="txtEndDate" HorizontalAlignment="Left" Height="23" Margin="505,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" IsReadOnly="True" IsTabStop="False"/>
         <Label x:Name="lblMembershipCost" Content="Membership Cost: " HorizontalAlignment="Left" Margin="28,78,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="11"/>
-        <TextBox x:Name="txtMembershipCost" HorizontalAlignment="Left" Height="23" Margin="137,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" Text="$9.99" IsReadOnly="True" IsTabStop="False"/>
-        <Label x:Name="lblSubtotal" Content="Subtotal:" HorizontalAlignment="Left" Margin="264,78,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="11"/>
-        <TextBox x:Name="txtSubtotal" HorizontalAlignment="Left" Height="23" Margin="332,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="104" Text="$49.99" IsReadOnly="True" IsTabStop="False"/>
+        <TextBox x:Name="txtMembershipCost" HorizontalAlignment="Left" Height="23" Margin="137,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68" IsReadOnly="True" IsTabStop="False"/>
+        <Label x:Name="lblSubtotal" Content="Subtotal:" HorizontalAlignment="Left" Margin="287,78,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="11"/>
+        <TextBox x:Name="txtSubtotal" HorizontalAlignment="Left" Height="23" Margin="355,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" IsReadOnly="True" IsTabStop="False"/>
         <Label x:Name="lblAdditionalFeatures" Content="ADDITIONAL FEATURES" HorizontalAlignment="Left" Margin="29,118,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="11" Background="#FFEAC6DA"/>
         <Label x:Name="lblPTP" Content="Personal Training Plan: " HorizontalAlignment="Left" Margin="164,117,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="11"/>
-        <TextBox x:Name="txtPersonalTrainingPlan" HorizontalAlignment="Left" Height="23" Margin="292,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" Text="Yes" TabIndex="1" IsReadOnly="True" IsTabStop="False"/>
+        <TextBox x:Name="txtPersonalTrainingPlan" HorizontalAlignment="Left" Height="23" Margin="292,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" TabIndex="1" IsReadOnly="True" IsTabStop="False"/>
         <Label x:Name="lblLocker" Content="Locker Rental: " HorizontalAlignment="Left" Margin="336,117,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="11"/>
-        <TextBox x:Name="txtLockerRental" HorizontalAlignment="Left" Height="23" Margin="419,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" Text="Yes" TabIndex="2" IsReadOnly="True" IsTabStop="False"/>
+        <TextBox x:Name="txtLockerRental" HorizontalAlignment="Left" Height="23" Margin="419,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" TabIndex="2" IsReadOnly="True" IsTabStop="False"/>
         <Label x:Name="lblTotal" Content="Total: " HorizontalAlignment="Left" Margin="463,117,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="11"/>
-        <TextBox x:Name="txtTotal" HorizontalAlignment="Left" Height="23" Margin="505,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" Text="$40.00" TabIndex="3" IsReadOnly="True" IsTabStop="False"/>
+        <TextBox x:Name="txtTotal" HorizontalAlignment="Left" Height="23" Margin="505,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" TabIndex="3" IsReadOnly="True" IsTabStop="False"/>
         <Image x:Name="imgFitnessClubLogo" HorizontalAlignment="Left" Height="44" Margin="22,162,0,0" VerticalAlignment="Top" Width="44" Source="Properties/FitnessClubLogo.png" OpacityMask="White" Opacity="0.25"/>
 
     </Grid>

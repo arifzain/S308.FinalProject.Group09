@@ -23,7 +23,6 @@ namespace FitnessClub
     {
         public Quote InfoFromPrevWindow { get; set; }
 
-        List<Pricing> priceList;
         public MembershipQuote()
         {
             InitializeComponent();
@@ -31,28 +30,6 @@ namespace FitnessClub
             InfoFromPrevWindow = new Quote();
 
             txtMembershipType.Text = InfoFromPrevWindow.MembershipType;
-
-            priceList = new List<Pricing>();
-            string strFilePath = GetFilePath("json");
-
-            try
-            {
-                StreamReader reader = new StreamReader(strFilePath);
-                string jsonData = reader.ReadToEnd();
-                reader.Close();
-
-                priceList = JsonConvert.DeserializeObject<List<Pricing>>(jsonData);
-
-               
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error in import process: " + ex.Message);
-            }
-
-            //show message when the application is opened
-            MessageBox.Show("Price data successfully imported.");
 
         }
 
@@ -65,16 +42,17 @@ namespace FitnessClub
             InfoFromPrevWindow = info;
 
             string strStartDate, strEndDate, strMembershipType, strMembershipTypeTrim, strMonthlyCost, strSubtotal;
-            double dblMonthlyCost, dblSubtotal, dblTotal;
+            double dblMonthlyCost, dblSubtotal;
 
-            strMembershipTypeTrim = InfoFromPrevWindow.MembershipType.ToString();
+            strMembershipTypeTrim = InfoFromPrevWindow.MembershipType.ToString().Trim();
             strMembershipType = InfoFromPrevWindow.MembershipType.ToString();
-
 
             strMembershipTypeTrim = strMembershipTypeTrim.Substring(0, strMembershipTypeTrim.IndexOf(":"));
             strMonthlyCost = strMembershipType.Substring(strMembershipType.IndexOf(":") + 1).Trim();
 
             dblMonthlyCost = Convert.ToDouble(strMonthlyCost);
+
+            strMonthlyCost = dblMonthlyCost.ToString("C2");
 
             strStartDate = InfoFromPrevWindow.StartDate;
             DateTime datStartDate;
@@ -112,13 +90,108 @@ namespace FitnessClub
                 datStartDate = datStartDate.AddYears(1);
                 dblSubtotal = dblMonthlyCost*12;
             }
-
-            strSubtotal = dblSubtotal.ToString();
             
-
-
+            strSubtotal = dblSubtotal.ToString("C2");
 
             strEndDate = string.Format("{0:MM/dd/yyyy}", datStartDate);
+
+            string strTraining, strLocker, strTotal;
+            double dblTraining, dblLocker, dblTotal;
+
+            strTraining = InfoFromPrevWindow.PersonalTraining;
+            strLocker = InfoFromPrevWindow.LockerRental;
+
+            dblTraining = 5;
+            dblLocker = 1;
+            dblTotal = 0;
+
+            if (strMembershipTypeTrim == "Individual 1 Month" && strTraining == "Yes" && strLocker == "Yes")
+            {
+                dblTotal = dblSubtotal + (1 * dblTraining) + (1 * dblLocker);
+            }
+            else if (strMembershipTypeTrim == "Individual 1 Month" && strTraining == "Yes" && strLocker == "No")
+            {
+                dblTotal = dblSubtotal + (1 * dblTraining);
+            }
+            else if (strMembershipTypeTrim == "Individual 1 Month" && strTraining == "No" && strLocker == "Yes")
+            {
+                dblTotal = dblSubtotal + (1 * dblLocker);
+            }
+
+            else if (strMembershipTypeTrim == "Individual 12 Month" && strTraining == "Yes" && strLocker == "Yes")
+            {
+                dblTotal = dblSubtotal + (12 * dblTraining) + (12 * dblLocker);
+            }
+            else if (strMembershipTypeTrim == "Individual 12 Month" && strTraining == "Yes" && strLocker == "No")
+            {
+                dblTotal = dblSubtotal + (12 * dblTraining);
+            }
+            else if (strMembershipTypeTrim == "Individual 12 Month" && strTraining == "No" && strLocker == "Yes")
+            {
+                dblTotal = dblSubtotal + (12 * dblLocker);
+            }
+
+
+            else if (strMembershipTypeTrim == "Two Person 1 Month" && strTraining == "Yes" && strLocker == "Yes")
+            {
+                dblTotal = dblSubtotal + (1 * dblTraining) + (1 * dblLocker);
+            }
+            else if (strMembershipTypeTrim == "Two Person 1 Month" && strTraining == "Yes" && strLocker == "No")
+            {
+                dblTotal = dblSubtotal + (1 * dblTraining);
+            }
+            else if (strMembershipTypeTrim == "Two Person 1 Month" && strTraining == "No" && strLocker == "Yes")
+            {
+                dblTotal = dblSubtotal + (1 * dblLocker);
+            }
+
+            else if (strMembershipTypeTrim == "Two Person 12 Month" && strTraining == "Yes" && strLocker == "Yes")
+            {
+                dblTotal = dblSubtotal + (12 * dblTraining) + (12 * dblLocker);
+            }
+            else if (strMembershipTypeTrim == "Two Person 12 Month" && strTraining == "Yes" && strLocker == "No")
+            {
+                dblTotal = dblSubtotal + (12 * dblTraining);
+            }
+            else if (strMembershipTypeTrim == "Two Person 12 Month" && strTraining == "No" && strLocker == "Yes")
+            {
+                dblTotal = dblSubtotal + (12 * dblLocker);
+            }
+
+
+            else if (strMembershipTypeTrim == "Family 1 Month" && strTraining == "Yes" && strLocker == "Yes")
+            {
+                dblTotal = dblSubtotal + (1 * dblTraining) + (1 * dblLocker);
+            }
+            else if (strMembershipTypeTrim == "Family 1 Month" && strTraining == "Yes" && strLocker == "No")
+            {
+                dblTotal = dblSubtotal + (1 * dblTraining);
+            }
+            else if (strMembershipTypeTrim == "Family 1 Month" && strTraining == "No" && strLocker == "Yes")
+            {
+                dblTotal = dblSubtotal + (1 * dblLocker);
+            }
+
+            else if (strMembershipTypeTrim == "Family 12 Month" && strTraining == "Yes" && strLocker == "Yes")
+            {
+                dblTotal = dblSubtotal + (12 * dblTraining) + (12 * dblLocker);
+            }
+            else if (strMembershipTypeTrim == "Family 12 Month" && strTraining == "Yes" && strLocker == "No")
+            {
+                dblTotal = dblSubtotal + (12 * dblTraining);
+            }
+            else if (strMembershipTypeTrim == "Family 12 Month" && strTraining == "No" && strLocker == "Yes")
+            {
+                dblTotal = dblSubtotal + (12 * dblLocker);
+            }
+
+            else
+            {
+                dblTotal = dblSubtotal;
+            }
+
+            strTotal = dblTotal.ToString("C2");
+
 
 
 
@@ -127,10 +200,11 @@ namespace FitnessClub
             txtMembershipType.Text = strMembershipTypeTrim;
             txtStartDate.Text = InfoFromPrevWindow.StartDate;
             txtEndDate.Text = strEndDate;
-            txtPersonalTrainingPlan.Text = InfoFromPrevWindow.PersonalTraining;
-            txtLockerRental.Text = InfoFromPrevWindow.LockerRental;
+            txtPersonalTrainingPlan.Text = strTraining;
+            txtLockerRental.Text = strLocker;
             txtMembershipCost.Text = strMonthlyCost;
             txtSubtotal.Text = strSubtotal;
+            txtTotal.Text = strTotal;
         }
 
         private string GetFilePath(string extension)

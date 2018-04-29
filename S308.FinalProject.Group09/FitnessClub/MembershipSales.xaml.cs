@@ -43,10 +43,6 @@ namespace FitnessClub
             {
                 MessageBox.Show("Error in import process: " + ex.Message);
             }
-
-            //show message when the application is opened
-            MessageBox.Show("Price data successfully imported.");
-
          
 
             Pricing pricingNew = new Pricing();

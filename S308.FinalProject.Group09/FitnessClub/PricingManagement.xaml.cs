@@ -51,7 +51,14 @@ namespace FitnessClub
             {
                 MessageBox.Show("Error in import process: " + ex.Message);
             }
-     
+
+
+
+
+
+
+
+
         }
 
         private void btnMainMenu_Click(object sender, RoutedEventArgs e)
@@ -214,8 +221,11 @@ namespace FitnessClub
 
             lsbOutput.Items.Clear();
             lsbOutput.Items.Add(strOutput);
+
+           
+
         }
-    
+
 
         private string GetFilePath(string extension)
         {

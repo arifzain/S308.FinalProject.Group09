@@ -102,5 +102,35 @@ namespace FitnessClub
                 return;
             }
         }
+        //clear button function
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            txtLastName.Text = "";
+            txtEmail.Text = "";
+            txtPhone.Text = "";
+
+            //clearing the record search results as well
+
+            txtMembershipType.Text = "";
+            txtStartDate.Text = "";
+            txtEndDate.Text = "";
+            txtMembershipCost.Text = "";
+            txtSubtotal.Text = "";
+            txtPersonalTrainingPlan.Text = "";
+            txtLockerRental.Text = "";
+            txtTotal.Text = "";
+            txtFName.Text = "";
+            txtLName.Text = "";
+            txtMemType.Text = "";
+            txtExpDate.Text = "";
+            txtAddFeatures.Text = "";
+            txtTotalCost.Text = "";
+            txtPhoneNum.Text = "";
+            txtEmailAdd.Text = "";
+            txtGender.Text = "";
+            txtAge.Text = "";
+            txtWeight.Text = "";
+            txtFitnessGoal.Text = "";
+        }
     }
 }

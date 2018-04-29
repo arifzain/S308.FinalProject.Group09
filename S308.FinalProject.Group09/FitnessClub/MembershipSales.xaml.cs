@@ -24,6 +24,7 @@ namespace FitnessClub
         {
             InitializeComponent();
 
+            //reading the selection of membership type
             string strFilePath = GetFilePath("txt");
 
             try

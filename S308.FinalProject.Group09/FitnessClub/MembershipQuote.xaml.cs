@@ -201,17 +201,16 @@ namespace FitnessClub
             txtMembershipCost.Text = strMonthlyCost;
             txtSubtotal.Text = strSubtotal;
             txtTotal.Text = strTotal;
+
+            SignUp signup = new SignUp(strMembershipTypeTrim, strStartDate, strEndDate, strMonthlyCost, strSubtotal, strTraining, strLocker, strTotal);
+
+            MembershipSignUp memberSignUp = new MembershipSignUp(signup);
+
+
+
+
         }
 
-        private string GetFilePath(string extension)
-        {
-            string strFilePath = @"..\..\..\Data\Pricing";
-            string strTimestamp = DateTime.Now.Ticks.ToString();
-
-            strFilePath += "." + extension;
-
-            return strFilePath;
-        }
 
         private void btnMainMenu_Click(object sender, RoutedEventArgs e)
         {

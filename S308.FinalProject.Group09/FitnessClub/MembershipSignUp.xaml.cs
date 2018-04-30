@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace FitnessClub
 {
@@ -19,10 +21,55 @@ namespace FitnessClub
     /// </summary>
     public partial class MembershipSignUp : Window
     {
+        public SignUp InfoFromPrevWindow { get; set; }
+        List<Members> membersList;
         public MembershipSignUp()
         {
             InitializeComponent();
+
+            InfoFromPrevWindow = new SignUp();
+
+            membersList = new List<Members>();
+
+            string strFilePath = GetFilePath("json");
+            try
+            {
+                StreamReader reader = new StreamReader(strFilePath);
+                string jsonData = reader.ReadToEnd();
+                reader.Close();
+
+                membersList = JsonConvert.DeserializeObject<List<Members>>(jsonData);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in import process: " + ex.Message);
+            }
+            
+        
         }
+
+        public MembershipSignUp(SignUp info)
+        {
+            InitializeComponent();
+
+            //assigning the property from the member info class that was passed into this overridden constructor
+            InfoFromPrevWindow = info;
+
+            string strMembershipType, strStartDate, strEndDate, strMembershipCost, strSubtotal, strPersonalTraining, strLockerRental, strTotal;
+
+            strMembershipType = InfoFromPrevWindow.MembershipType.ToString();
+            strStartDate = InfoFromPrevWindow.StartDate.ToString();
+            strEndDate = InfoFromPrevWindow.EndDate.ToString();
+            strMembershipCost = InfoFromPrevWindow.MembershipCost.ToString();
+            strSubtotal = InfoFromPrevWindow.Subtotal.ToString();
+            strPersonalTraining = InfoFromPrevWindow.PersonalTraining.ToString();
+            strLockerRental = InfoFromPrevWindow.LockerRental.ToString();
+            strTotal = InfoFromPrevWindow.Total.ToString();
+
+        }
+
+
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
@@ -44,11 +91,11 @@ namespace FitnessClub
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            double dblPhone, dblWeight;
+            double dblPhone;
 
-            string strFName, strLName, strPhone, strEmail;
+            string strFName, strLName, strPhone, strEmail, strGender, strAge, strWeight, strPersonalGoal;
 
-            int intAt, intPeriod, intEmailLength, intAge;
+            int intAt, intPeriod, intEmailLength;
 
             //For data validation
             strFName = txtFirstName.Text.Trim();
@@ -115,29 +162,9 @@ namespace FitnessClub
                 return;
             }
 
-            //validate the age
-            if (!Int32.TryParse(txtAge.Text, out intAge))
-            {
-                MessageBox.Show("Please do not leave age field empty.");
-                return;
-            }
-            if (intAge < 0 || intAge > 120)
-            {
-                MessageBox.Show("Please enter a valid age. (0-120 years old)");
-                return;
-            }
 
-            //validate the weight
-            if (!double.TryParse(txtWeight.Text, out dblWeight))
-            {
-                MessageBox.Show("Please enter valid numbers.");
-                return;
-            }
-            if (dblWeight < 0 || dblWeight > 750)
-            {
-                MessageBox.Show("Please enter a valid weight. (0-750 pounds)");
-                return;
-            }
+
+
 
             //validate the cc #
             //1. Declare a variables
@@ -259,9 +286,101 @@ namespace FitnessClub
                 txtCCNumber.Background = new SolidColorBrush(Color.FromRgb(255, 200, 200));
             }
 
+            strGender = cboGender.Text;
 
+            strPersonalGoal = cboGoals.Text;
+
+
+
+            double dblAge, dblWeight;
+
+            strAge = txtAge.Text;
+            dblAge = Convert.ToDouble(strAge);
+
+            if (strAge == "" && !double.TryParse(strAge, out dblAge))
+            {
+                MessageBox.Show("Please enter a valid number for age.");
+                return;
+            }
+
+            strAge = dblAge.ToString();
+
+            strWeight = txtWeight.Text;
+            dblWeight = Convert.ToDouble(strWeight);
+
+            if (strWeight == "" && !double.TryParse(strWeight, out dblWeight))
+            {
+                MessageBox.Show("Please enter a valid number for weight.");
+                return;
+            }
+
+            strWeight = dblWeight.ToString();
+
+            string strMembershipType, strStartDate, strEndDate, strMembershipCost, strSubtotal, strPersonalTraining, strLockerRental, strTotal;
+
+            strMembershipType = InfoFromPrevWindow.MembershipType.ToString();
+            strStartDate = InfoFromPrevWindow.StartDate.ToString();
+            strEndDate = InfoFromPrevWindow.EndDate.ToString();
+            strMembershipCost = InfoFromPrevWindow.MembershipCost.ToString();
+            strSubtotal = InfoFromPrevWindow.Subtotal.ToString();
+            strPersonalTraining = InfoFromPrevWindow.PersonalTraining.ToString();
+            strLockerRental = InfoFromPrevWindow.LockerRental.ToString();
+            strTotal = InfoFromPrevWindow.Total.ToString();
+            
+
+
+            Members membersNew = new Members(strFName, strLName, strCardType, strCardNum, strPhone, strEmail, strGender, strMembershipType, strStartDate, strEndDate, strMembershipCost, strPersonalTraining, strLockerRental, strTotal, strAge, strWeight, strPersonalGoal);
+
+            //show data extracted from text boxes and combo box in a message box as a way to preview data before adding to list and exporting to the json file
+            //user has the option (yes/no) to continue with the data submission process
+            MessageBoxResult messageBoxResult = MessageBox.Show("Do you want to add the member below?"
+                + Environment.NewLine
+                + Environment.NewLine
+                , "Add new member?"
+                , MessageBoxButton.YesNo);
+
+            //if statement to respond to the above (yes/no) selection
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                //if yes, the new customer created is added to list
+                membersList.Add(membersNew);
+
+                //new list is exported to replace the old one by calling upon a method
+                ExportToFile(membersNew);
+
+
+
+            }
         }
 
+        private string GetFilePath(string extension)
+        {
+            string strFilePath = @"..\..\..\..\Data\Members";
+            string strTimestamp = DateTime.Now.Ticks.ToString();
+
+            strFilePath += "." + extension;
+
+            return strFilePath;
+        }
+
+        private void ExportToFile(Members membersNew)
+        {
+            string strFilePath = GetFilePath("json");
+
+            try
+            {
+                StreamWriter writer = new StreamWriter(strFilePath, false);
+                string jsonData = JsonConvert.SerializeObject(membersList);
+                writer.Write(jsonData);
+                writer.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving the new customer: " + ex.Message);
+            }
+
+            MessageBox.Show("Customer saved." + Environment.NewLine + "File Created: " + strFilePath);
+        }
         public static string ReverseString(string s)
         {
             char[] array = s.ToCharArray();

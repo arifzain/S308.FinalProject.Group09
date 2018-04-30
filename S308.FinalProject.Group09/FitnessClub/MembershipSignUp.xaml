@@ -18,23 +18,21 @@
         <Label x:Name="lblAge" Content="Age:" HorizontalAlignment="Left" Height="31" Margin="163,293,0,0" VerticalAlignment="Top" Width="36"/>
         <Label x:Name="lblWeight" Content="Weight:" HorizontalAlignment="Left" Height="31" Margin="247,293,0,0" VerticalAlignment="Top" Width="50"/>
         <Label x:Name="lblGoals" Content="Personal Fitness Goals:" HorizontalAlignment="Left" Height="28" Margin="27,329,0,0" VerticalAlignment="Top" Width="145"/>
-        <TextBox x:Name="txtFirstName" HorizontalAlignment="Left" Height="24" Margin="100,137,0,0" TextWrapping="Wrap" Text="Joe" VerticalAlignment="Top" Width="75" TabIndex="1"/>
-        <TextBox x:Name="txtAge" HorizontalAlignment="Left" Height="20" Margin="199,297,0,0" TextWrapping="Wrap" Text="25" VerticalAlignment="Top" Width="43" TabIndex="8"/>
-        <TextBox x:Name="txtWeight" HorizontalAlignment="Left" Height="20" Margin="302,297,0,0" TextWrapping="Wrap" Text="165" VerticalAlignment="Top" Width="47" TabIndex="9"/>
-        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="23" Margin="227,257,0,0" TextWrapping="Wrap" Text="chugg@plug.net" VerticalAlignment="Top" Width="123" TabIndex="6"/>
-        <TextBox x:Name="txtPhone" HorizontalAlignment="Left" Height="23" Margin="78,257,0,0" TextWrapping="Wrap" Text="(317) 555-5555" VerticalAlignment="Top" Width="95" TabIndex="5"/>
-        <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="24" Margin="249,137,0,0" TextWrapping="Wrap" Text="Chugg" VerticalAlignment="Top" Width="104" TabIndex="2"/>
-        <TextBox x:Name="txtCCNumber" HorizontalAlignment="Left" Height="22" Margin="150,217,0,0" TextWrapping="Wrap" Text="4111 1111 1111 1111" VerticalAlignment="Top" Width="201" TabIndex="4"/>
+        <TextBox x:Name="txtFirstName" HorizontalAlignment="Left" Height="24" Margin="100,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" TabIndex="1"/>
+        <TextBox x:Name="txtAge" HorizontalAlignment="Left" Height="20" Margin="199,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" TabIndex="8"/>
+        <TextBox x:Name="txtWeight" HorizontalAlignment="Left" Height="20" Margin="302,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="47" TabIndex="9"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="23" Margin="227,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" TabIndex="6"/>
+        <TextBox x:Name="txtPhone" HorizontalAlignment="Left" Height="23" Margin="78,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" TabIndex="5"/>
+        <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="24" Margin="249,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="104" TabIndex="2"/>
+        <TextBox x:Name="txtCCNumber" HorizontalAlignment="Left" Height="22" Margin="150,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" TabIndex="4"/>
         <ComboBox x:Name="cboCCType" HorizontalAlignment="Left" Height="24" Margin="134,178,0,0" VerticalAlignment="Top" Width="218" TabIndex="3">
-            <ComboBoxItem x:Name="cbiDefaultCC"/>
-            <ComboBoxItem x:Name="cbiVisa" Content="VISA" IsSelected="True"/>
+            <ComboBoxItem x:Name="cbiVisa" Content="VISA"/>
             <ComboBoxItem x:Name="cbiMaster" Content="MasterCard"/>
             <ComboBoxItem x:Name="cbiAmex" Content="American Express"/>
             <ComboBoxItem x:Name="cbiDiscover" Content="Discover"/>
         </ComboBox>
         <ComboBox x:Name="cboGender" HorizontalAlignment="Left" Height="25" Margin="85,295,0,0" VerticalAlignment="Top" Width="73" TabIndex="7">
-            <ComboBoxItem x:Name="cbiDefaultGender"/>
-            <ComboBoxItem x:Name="cbiMale" Content="Male" IsSelected="True"/>
+            <ComboBoxItem x:Name="cbiMale" Content="Male"/>
             <ComboBoxItem x:Name="cbiFemale" Content="Female"/>
             <ComboBoxItem x:Name="cbiOther" Content="Other"/>
         </ComboBox>
@@ -44,10 +42,11 @@
         <ComboBox x:Name="cboGoals" HorizontalAlignment="Left" Height="25" Margin="172,332,0,0" VerticalAlignment="Top" Width="177" TabIndex="7">
             <ComboBoxItem x:Name="cbiDefaultGender1" Content="Athletic Performance"/>
             <ComboBoxItem Content="Overall Health"/>
-            <ComboBoxItem x:Name="cbiMale1" Content="Strength Training" IsSelected="True"/>
+            <ComboBoxItem x:Name="cbiMale1" Content="Strength Training"/>
             <ComboBoxItem x:Name="cbiFemale1" Content="Weight Loss"/>
             <ComboBoxItem x:Name="cbiOther1" Content="Weight Management"/>
         </ComboBox>
+        <Label x:Name="label" Content="" HorizontalAlignment="Left" Margin="242,96,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

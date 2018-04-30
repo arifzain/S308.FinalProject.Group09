@@ -116,6 +116,7 @@ namespace FitnessClub
             Quote quote = new Quote(strMembershipType, strSelectedDate, strPersonalTraining, strLockerRental);
 
             MembershipQuote memberQuote = new MembershipQuote(quote);
+            
 
             memberQuote.Show();
 

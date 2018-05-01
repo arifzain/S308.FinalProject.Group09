@@ -84,27 +84,25 @@ namespace FitnessClub
             }
 
             // phone number validation so it contains all numbers and is not empty
-
-            if (!double.TryParse(txtPhone.Text, out dblPhone))
+            if (strPhone.Trim() != "")
             {
-                MessageBox.Show("Please enter valid numbers.");
-                return;
-            }
+                if (!double.TryParse(txtPhone.Text, out dblPhone))
+                {
+                    MessageBox.Show("Please enter valid numbers.");
+                    return;
+                }
 
-            if (strPhone == "")
-            {
-                MessageBox.Show("Please do not leave phone number field empty.");
-                return;
-            }
 
-            // validation so that phone number is 10 digits long
 
-            strPhone = Convert.ToString(dblPhone);
+                // validation so that phone number is 10 digits long
 
-            if (strPhone.Length != 10)
-            {
-                MessageBox.Show("Phone number has to be 10 digits long.");
-                return;
+                strPhone = Convert.ToString(dblPhone);
+
+                if (strPhone.Length != 10)
+                {
+                    MessageBox.Show("Phone number has to be 10 digits long.");
+                    return;
+                }
             }
 
             // Since an email address needs to contain an 'at mark' after the username and before the domain
@@ -112,29 +110,50 @@ namespace FitnessClub
 
             // Make sure email is a valid email address with an at mark after the username and a period before the domain
 
-            if (strEmail == "")
+            if (strEmail.Trim() != "")
             {
-                MessageBox.Show("Please enter an email address.");
-                return;
-            }
-            if (strEmail != "" && (!strEmail.Contains("@") || !strEmail.Contains(".")))
-            {
-                MessageBox.Show("Valid email address format needs to be entered.");
-                return;
-            }
 
-            if (strEmail != "" && ((intAt < 1) || ((intPeriod - intAt) < 2) || ((intEmailLength - 1 - intPeriod) < 2)))
-            {
-                MessageBox.Show("Valid email address format needs to be entered.");
-                return;
+                if (strEmail != "" && (!strEmail.Contains("@") || !strEmail.Contains(".")))
+                {
+                    MessageBox.Show("Valid email address format needs to be entered.");
+                    return;
+                }
+
+                if (strEmail != "" && ((intAt < 1) || ((intPeriod - intAt) < 2) || ((intEmailLength - 1 - intPeriod) < 2)))
+                {
+                    MessageBox.Show("Valid email address format needs to be entered.");
+                    return;
+                }
             }
             #endregion
-
-            membersSearch = membersIndex.Where(m =>
-                m.LastName.StartsWith(strLName) &&
-                m.Phone.StartsWith(strPhone) &&
-                m.Email.StartsWith(strEmail)
-            ).ToList();
+            if (strPhone == "" && strEmail != "")
+            {
+                membersSearch = membersIndex.Where(m =>
+                    m.LastName.Contains(strLName) &&
+                    m.Email.Contains(strEmail)
+                ).ToList();
+            }
+            else if (strEmail == "" && strPhone != "")
+            {
+                membersSearch = membersIndex.Where(m =>
+                    m.LastName.Contains(strLName) &&
+                    m.Phone.Contains(strPhone)
+                ).ToList();
+            }
+            else if (strEmail != "" && strPhone != "")
+            {
+                membersSearch = membersIndex.Where(m =>
+                    m.LastName.Contains(strLName) &&
+                    m.Phone.Contains(strPhone) &&
+                    m.Email.Contains(strEmail)
+                ).ToList();
+            }
+            else
+            {
+                membersSearch = membersIndex.Where(m =>
+                     m.LastName.Contains(strLName)
+                     ).ToList();
+            }
 
             foreach (Members m in membersSearch)
             {
@@ -179,6 +198,7 @@ namespace FitnessClub
                 txtDetails.Text = membersSelected.ToString();
             }
         }
+
     }
 }
 

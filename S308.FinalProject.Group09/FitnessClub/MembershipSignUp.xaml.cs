@@ -169,7 +169,7 @@ namespace FitnessClub
             //validate the cc #
 
 
-            //1.
+            //Naming the variables
             string strCardNum = txtCCNumber.Text.Trim().Replace(" ", "");
             long lngOut;
             bool bolValid = false;
@@ -178,7 +178,7 @@ namespace FitnessClub
             int intCheckSum = 0;
             string strCardType;
 
-            //2.
+            //Making sure the CC input is numbers
             txtCCNumber.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
 
             if (!Int64.TryParse(strCardNum, out lngOut))
@@ -188,7 +188,7 @@ namespace FitnessClub
                 return;
             }
 
-            //3.
+            //Making sure the CC input is the right amount of numbers
             if (strCardNum.Length != 13 && strCardNum.Length != 15 && strCardNum.Length != 16)
             {
                 MessageBox.Show("Credit card numbers must contain 13, 15, or 16 digits.");
@@ -196,7 +196,7 @@ namespace FitnessClub
                 return;
             }
 
-            //4.
+            //Matching the CC input to the CC type
             if (strCardNum.StartsWith("34") || strCardNum.StartsWith("37"))
                 strCardType = "AMEX";
             else if (strCardNum.StartsWith("6011"))
@@ -208,7 +208,7 @@ namespace FitnessClub
             else
                 strCardType = "Unknown Card Type";
 
-            //5.
+            //Validating the CC # based on the formula
             strCardNum = ReverseString(strCardNum);
 
             for (i = 0; i < strCardNum.Length; i++)
@@ -233,22 +233,22 @@ namespace FitnessClub
                 bolValid = true;
             }
 
-            //6.
+            //Changing the cboCCType selection based on the card type
             if (bolValid)
             {
                 switch (strCardType)
                 {
                     case "AMEX":
-
+                        cboCCType.SelectedIndex = 2;
                         break;
                     case "Discover":
-
+                        cboCCType.SelectedIndex = 3;
                         break;
                     case "MasterCard":
-
+                        cboCCType.SelectedIndex = 1;
                         break;
                     case "VISA":
-
+                        cboCCType.SelectedIndex = 0;
                         break;
                 }
 
@@ -331,7 +331,7 @@ namespace FitnessClub
 
         private string GetFilePath(string extension)
         {
-            string strFilePath = @"..\..\..\..\Data\Members";
+            string strFilePath = @"..\Data\Members";
             string strTimestamp = DateTime.Now.Ticks.ToString();
 
             strFilePath += "." + extension;

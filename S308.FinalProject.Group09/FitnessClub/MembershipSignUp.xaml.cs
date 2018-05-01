@@ -365,7 +365,7 @@ namespace FitnessClub
 
         private string GetFilePath()
         {
-            string strFilePath = @"../../../../Data/Members.json";
+            string strFilePath = @"../../../Data/Members.json";
 
 
 

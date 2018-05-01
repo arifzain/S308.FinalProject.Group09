@@ -156,6 +156,8 @@ namespace FitnessClub
             txtLastName.Text = "";
             txtEmail.Text = "";
             txtPhone.Text = "";
+            txtDetails.Text = "";
+            lbxMembers.Items.Clear();
 
             //clearing the record search results as well
         }

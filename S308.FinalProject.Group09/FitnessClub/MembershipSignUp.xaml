@@ -36,10 +36,10 @@
             <ComboBoxItem x:Name="cbiFemale" Content="Female"/>
             <ComboBoxItem x:Name="cbiOther" Content="Other"/>
         </ComboBox>
-        <Button x:Name="btnSubmit" Content="Submit" HorizontalAlignment="Left" Height="22" Margin="273,377,0,0" VerticalAlignment="Top" Width="76" Background="#FFEAC6DA" TabIndex="15" Click="btnSubmit_Click"/>
-        <Button x:Name="btnMainMenu" Content="Main Menu" HorizontalAlignment="Left" Height="22" Margin="190,377,0,0" VerticalAlignment="Top" Width="76" Background="#FFEAC6DA" TabIndex="16" Click="btnMainMenu_Click"/>
+        <Button x:Name="btnSubmit" Content="Submit" HorizontalAlignment="Left" Height="22" Margin="273,377,0,0" VerticalAlignment="Top" Width="76" Background="#FFEAC6DA" TabIndex="12" Click="btnSubmit_Click"/>
+        <Button x:Name="btnMainMenu" Content="Main Menu" HorizontalAlignment="Left" Height="22" Margin="190,377,0,0" VerticalAlignment="Top" Width="76" Background="#FFEAC6DA" TabIndex="11" Click="btnMainMenu_Click"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="114" Margin="20,10,0,0" VerticalAlignment="Top" Width="114" Source="Properties/FitnessClubLogo.png"/>
-        <ComboBox x:Name="cboGoals" HorizontalAlignment="Left" Height="25" Margin="172,332,0,0" VerticalAlignment="Top" Width="177" TabIndex="7">
+        <ComboBox x:Name="cboGoals" HorizontalAlignment="Left" Height="25" Margin="172,332,0,0" VerticalAlignment="Top" Width="177" TabIndex="10">
             <ComboBoxItem x:Name="cbiDefaultGender1" Content="Athletic Performance"/>
             <ComboBoxItem Content="Overall Health"/>
             <ComboBoxItem x:Name="cbiMale1" Content="Strength Training"/>

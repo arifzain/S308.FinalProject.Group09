@@ -25,7 +25,7 @@ namespace FitnessClub
             //initialize component
             InitializeComponent();
 
-            string strFilePath = GetFilePath("txt");
+            string strFilePath = @"../../../Data/Pricing.txt";
 
             //read Pricing.txt file and add items in cboMembership price
             try

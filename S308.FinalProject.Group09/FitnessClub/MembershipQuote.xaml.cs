@@ -21,6 +21,7 @@ namespace FitnessClub
     /// </summary>
     public partial class MembershipQuote : Window
     {
+        //info is stored in this property
         public Quote InfoFromPrevWindow { get; set; }
 
         public MembershipQuote()

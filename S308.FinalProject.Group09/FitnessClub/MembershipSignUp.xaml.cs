@@ -23,38 +23,29 @@ namespace FitnessClub
     {
         public SignUp InfoFromPrevWindow { get; set; }
         List<Members> membersList;
+
         public MembershipSignUp()
         {
             InitializeComponent();
 
+
+            //assigning the property from the member info class that was passed into this overridden constructor
             InfoFromPrevWindow = new SignUp();
 
             membersList = new List<Members>();
 
-            string strFilePath = GetFilePath("json");
-            try
-            {
-                StreamReader reader = new StreamReader(strFilePath);
-                string jsonData = reader.ReadToEnd();
-                reader.Close();
 
-                membersList = JsonConvert.DeserializeObject<List<Members>>(jsonData);
-            }
 
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error in import process: " + ex.Message);
-            }
-            
-        
         }
 
         public MembershipSignUp(SignUp info)
         {
+            //don't forget this line when overriding the constructor for a window
             InitializeComponent();
 
             //assigning the property from the member info class that was passed into this overridden constructor
             InfoFromPrevWindow = info;
+
 
             string strMembershipType, strStartDate, strEndDate, strMembershipCost, strSubtotal, strPersonalTraining, strLockerRental, strTotal;
 
@@ -67,9 +58,10 @@ namespace FitnessClub
             strLockerRental = InfoFromPrevWindow.LockerRental.ToString();
             strTotal = InfoFromPrevWindow.Total.ToString();
 
-        }
 
 
+            }
+    
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
@@ -85,12 +77,41 @@ namespace FitnessClub
             this.Close();
         }
 
-
-
-
-
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
+
+
+            string strFilePath = GetFilePath();
+            try
+            {
+                StreamReader reader = new StreamReader(strFilePath);
+                string jsonData = reader.ReadToEnd();
+                reader.Close();
+
+                membersList = JsonConvert.DeserializeObject<List<Members>>(jsonData);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in import process: " + ex.Message);
+            }
+
+
+            
+
+            string strMembershipType, strStartDate, strEndDate, strMembershipCost, strSubtotal, strPersonalTraining, strLockerRental, strTotal;
+
+            strMembershipType = InfoFromPrevWindow.MembershipType.ToString();
+            strStartDate = InfoFromPrevWindow.StartDate.ToString();
+            strEndDate = InfoFromPrevWindow.EndDate.ToString();
+            strMembershipCost = InfoFromPrevWindow.MembershipCost.ToString();
+            strSubtotal = InfoFromPrevWindow.Subtotal.ToString();
+            strPersonalTraining = InfoFromPrevWindow.PersonalTraining.ToString();
+            strLockerRental = InfoFromPrevWindow.LockerRental.ToString();
+            strTotal = InfoFromPrevWindow.Total.ToString();
+
+
+
             double dblPhone;
 
             string strFName, strLName, strPhone, strEmail, strGender, strAge, strWeight, strPersonalGoal;
@@ -316,17 +337,6 @@ namespace FitnessClub
 
             strWeight = dblWeight.ToString();
 
-            string strMembershipType, strStartDate, strEndDate, strMembershipCost, strSubtotal, strPersonalTraining, strLockerRental, strTotal;
-
-            strMembershipType = InfoFromPrevWindow.MembershipType.ToString();
-            strStartDate = InfoFromPrevWindow.StartDate.ToString();
-            strEndDate = InfoFromPrevWindow.EndDate.ToString();
-            strMembershipCost = InfoFromPrevWindow.MembershipCost.ToString();
-            strSubtotal = InfoFromPrevWindow.Subtotal.ToString();
-            strPersonalTraining = InfoFromPrevWindow.PersonalTraining.ToString();
-            strLockerRental = InfoFromPrevWindow.LockerRental.ToString();
-            strTotal = InfoFromPrevWindow.Total.ToString();
-            
 
 
             Members membersNew = new Members(strFName, strLName, strCardType, strCardNum, strPhone, strEmail, strGender, strMembershipType, strStartDate, strEndDate, strMembershipCost, strPersonalTraining, strLockerRental, strTotal, strAge, strWeight, strPersonalGoal);
@@ -353,19 +363,18 @@ namespace FitnessClub
             }
         }
 
-        private string GetFilePath(string extension)
+        private string GetFilePath()
         {
-            string strFilePath = @"..\..\..\..\Data\Members";
-            string strTimestamp = DateTime.Now.Ticks.ToString();
+            string strFilePath = @"../../../../Data/Members.json";
 
-            strFilePath += "." + extension;
+
 
             return strFilePath;
         }
 
         private void ExportToFile(Members membersNew)
         {
-            string strFilePath = GetFilePath("json");
+            string strFilePath = GetFilePath();
 
             try
             {

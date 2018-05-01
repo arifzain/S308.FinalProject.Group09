@@ -139,5 +139,11 @@ namespace FitnessClub
             return strFilePath;
         }
 
+        private void btn_MainMenu_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
     }
 }

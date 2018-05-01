@@ -23,6 +23,7 @@ namespace FitnessClub
     {
         public SignUp InfoFromPrevWindow { get; set; }
         List<Members> membersList;
+        
         public MembershipSignUp()
         {
             InitializeComponent();
@@ -266,7 +267,7 @@ namespace FitnessClub
 
             strPersonalGoal = cboGoals.Text;
 
-
+            // Validation for the age and weight to not be empty
 
             double dblAge, dblWeight;
 
@@ -329,6 +330,7 @@ namespace FitnessClub
             }
         }
 
+        // exporting and appending to the json file
         private string GetFilePath(string extension)
         {
             string strFilePath = @"..\Data\Members";

@@ -63,6 +63,7 @@ namespace FitnessClub
             this.Close();
         }
 
+        //Assigning variables to prices as well as validating it to be valid numbers
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
             string strInd1, strInd12, strTwo1, strTwo12, strFam1, strFam12,
@@ -222,6 +223,7 @@ namespace FitnessClub
 
         }
 
+        //Grabbing the pricing file
 
         private string GetFilePath(string extension)
         {

@@ -128,7 +128,7 @@ namespace FitnessClub
 
         }
 
-
+        // Getting the pricing file
         private string GetFilePath(string extension)
         {
             string strFilePath = @"..\..\..\..\Data\Pricing";

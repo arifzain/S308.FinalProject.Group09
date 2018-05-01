@@ -138,6 +138,8 @@ namespace FitnessClub
             }
         }
 
+
+        //Getting file path of our json file
         private string GetFilePath(string extension)
         {
             string strFilePath = @"..\..\..\..\Data\Members";

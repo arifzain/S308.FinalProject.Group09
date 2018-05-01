@@ -223,7 +223,7 @@ namespace FitnessClub
 
         private string GetFilePath(string extension)
         {
-            string strFilePath = @"..\..\..\..\Data\Pricing";
+            string strFilePath = @"..\..\..\Data\Pricing";
             string strTimestamp = DateTime.Now.Ticks.ToString();
 
             strFilePath += "." + extension;

@@ -11,9 +11,9 @@
         <Label x:Name="lblEmail" Content="Email: " HorizontalAlignment="Left" Margin="334,177,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="lblPhone" Content="Phone Number(s): " HorizontalAlignment="Left" Margin="32,210,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="lblTitle" Content="FITNESS CLUB MEMBER INFORMATION" HorizontalAlignment="Left" Margin="141,43,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Background="{x:Null}"/>
-        <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="23" Margin="104,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" Text="Adelson" TabIndex="1"/>
-        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="23" Margin="378,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Text="adelmatt@gmail.com" TabIndex="2"/>
-        <TextBox x:Name="txtPhone" HorizontalAlignment="Left" Height="23" Margin="148,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" Text="8123435432" TabIndex="3"/>
+        <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="23" Margin="104,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" Text="" TabIndex="1"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="23" Margin="378,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Text="" TabIndex="2"/>
+        <TextBox x:Name="txtPhone" HorizontalAlignment="Left" Height="23" Margin="148,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" Text="" TabIndex="3"/>
         <Button x:Name="btnFind" Content="Find Record" HorizontalAlignment="Left" Margin="439,214,0,0" VerticalAlignment="Top" Width="80" Background="#FFEAC6DA" FontSize="11" TabIndex="4" Click="btnFind_Click"/>
         <Button x:Name="btnClear" Content="Clear" HorizontalAlignment="Left" Margin="531,214,0,0" VerticalAlignment="Top" Width="74" Background="#FFEAC6DA" FontSize="11" TabIndex="5" Click="btnClear_Click"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="39,11,0,0" VerticalAlignment="Top" Width="100" Source="Properties/FitnessClubLogo.png"/>

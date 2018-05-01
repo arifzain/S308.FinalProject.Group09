@@ -19,7 +19,7 @@
         <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="39,11,0,0" VerticalAlignment="Top" Width="100" Source="Properties/FitnessClubLogo.png"/>
         <TextBox x:Name="txtInstructions" HorizontalAlignment="Left" Height="47" Margin="35,116,0,0" TextWrapping="Wrap" Text="Please enter the member's last name, email address and phone number in the fields below. Next, click on the &quot;Find Record&quot; button to retrieve their member information. " VerticalAlignment="Top" Width="570" IsTabStop="False" IsReadOnly="True" Background="#FFEAC6DA"/>
         <Button x:Name="btnMain" Content="Main Menu" HorizontalAlignment="Left" Margin="534,411,0,0" VerticalAlignment="Top" Width="75" Background="#FFEAC6DA" Click="btnMain_Click_1"/>
-        <ListBox x:Name="lbxMembers" HorizontalAlignment="Left" Height="110" Margin="32,276,0,0" VerticalAlignment="Top" Width="257"/>
+        <ListBox x:Name="lbxMembers" HorizontalAlignment="Left" Height="110" Margin="32,276,0,0" VerticalAlignment="Top" Width="257" SelectionChanged="lbxMembers_SelectionChanged"/>
         <Label x:Name="lblNumFound" Content="(0)" HorizontalAlignment="Left" Margin="110,249,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtDetails" HorizontalAlignment="Left" Height="137" Margin="306,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="303" VerticalScrollBarVisibility="Visible" IsReadOnly="True" IsTabStop="False"/>
         <Label x:Name="lblSearchResults" Content="Search Results" HorizontalAlignment="Left" Margin="29,249,0,0" VerticalAlignment="Top"/>

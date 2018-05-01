@@ -143,16 +143,6 @@ namespace FitnessClub
             lblNumFound.Content = "(" + membersSearch.Count.ToString() + ")";
         }
 
-        private void lstMembers_SelectionChanged(object sender, InkCanvasSelectionChangingEventArgs e)
-        {
-            if (lbxMembers.SelectedIndex > -1)
-            {
-                string strSelectedMember = lbxMembers.SelectedItem.ToString();
-
-                Members membersSelected = membersIndex.Where(m => m.LastName == strSelectedMember).FirstOrDefault();
-                txtDetails.Text = membersSelected.ToString();
-            }
-        }
 
         //searching for the member is similar to the pokemon example
         //members where email = email, lastname = lastname, phone number = phone number
@@ -165,6 +155,8 @@ namespace FitnessClub
             txtLastName.Text = "";
             txtEmail.Text = "";
             txtPhone.Text = "";
+            txtDetails.Text = "";
+            lbxMembers.Items.Clear();
 
             //clearing the record search results as well
         }
@@ -175,8 +167,21 @@ namespace FitnessClub
             newWindow.Show();
             this.Close();
         }
+
+        private void lbxMembers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (lbxMembers.SelectedIndex > -1)
+            {
+                string strSelectedMember = lbxMembers.SelectedItem.ToString();
+
+                Members membersSelected = membersIndex.Where(m => m.LastName == strSelectedMember).FirstOrDefault();
+                txtDetails.Text = membersSelected.ToString();
+            }
+        }
     }
 }
+
 
 
 

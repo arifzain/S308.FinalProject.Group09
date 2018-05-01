@@ -22,10 +22,12 @@ namespace FitnessClub
     {
         public MembershipSales()
         {
+            //initialize component
             InitializeComponent();
 
-            string strFilePath = GetFilePath("txt");
+            string strFilePath = @"../../../Data/Pricing.txt";
 
+            //read Pricing.txt file and add items in cboMembership price
             try
             {
                 StreamReader reader = new StreamReader(strFilePath);
@@ -68,7 +70,7 @@ namespace FitnessClub
             
 
 
-            //validate date
+            //validate date to ensure entered date is not in the past
 
             dtpStartDate.DisplayDateStart = datToday;
 
@@ -139,5 +141,11 @@ namespace FitnessClub
             return strFilePath;
         }
 
+        private void btn_MainMenu_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
     }
 }

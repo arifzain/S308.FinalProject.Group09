@@ -22,40 +22,33 @@ namespace FitnessClub
     public partial class MemberInformation : Window
 
     {
-        List<Members> memberList;
+        List<Members> membersIndex;
         public MemberInformation()
         {
             InitializeComponent();
 
-            memberList = new List<Members>();
+            membersIndex = GetDataSetFromFile();
+        }
 
-            dtgMembersOutput.ItemsSource = memberList;
+        public List<Members> GetDataSetFromFile()
+        {
+            List<Members> lstMembers = new List<Members>();
 
-            //import data from json file and deserialize
-            string strFilePath = GetFilePath("json");
+            string strFilePath = @"../../../Data/Members.json";
 
             try
             {
-                StreamReader reader = new StreamReader(strFilePath);
-                string jsonData = reader.ReadToEnd();
-                reader.Close();
-
-                memberList = JsonConvert.DeserializeObject<List<Members>>(jsonData);
-
-                dtgMembersOutput.ItemsSource = memberList;
+                string jsonData = File.ReadAllText(strFilePath);
+                lstMembers = JsonConvert.DeserializeObject<List<Members>>(jsonData);
             }
-
             catch (Exception ex)
             {
-                MessageBox.Show("Error in import process: " + ex.Message);
+                Console.WriteLine("Error loading Members from file:" + ex.Message);
             }
-
-            dtgMembersOutput.Items.Refresh();
-
-            //show message when the application is opened
-            MessageBox.Show("Customer data successfully imported.");
-
+            return lstMembers;
         }
+
+
 
         private void btnMain_Click(object sender, RoutedEventArgs e)
         {
@@ -66,14 +59,14 @@ namespace FitnessClub
 
         private void btnFind_Click(object sender, RoutedEventArgs e)
         {
-            
+            List<Members> membersSearch;
 
             double dblPhone;
 
             string strLName, strPhone, strEmail;
 
             int intAt, intPeriod, intEmailLength;
-
+            #region Validation
             //For data validation
             strLName = txtLastName.Text;
             strPhone = txtPhone.Text;
@@ -136,19 +129,26 @@ namespace FitnessClub
                 MessageBox.Show("Valid email address format needs to be entered.");
                 return;
             }
+            #endregion
+
+            membersSearch = membersIndex.Where(m =>
+                m.LastName.StartsWith(strLName) &&
+                m.Phone.StartsWith(strPhone) &&
+                m.Email.StartsWith(strEmail)
+            ).ToList();
+
+            foreach (Members m in membersSearch)
+            {
+                lbxMembers.Items.Add(m.LastName);
+            }
+            lblNumFound.Content = "(" + membersSearch.Count.ToString() + ")";
         }
 
 
-        //Getting file path of our json file
-        private string GetFilePath(string extension)
-        {
-            string strFilePath = @"..\..\..\..\Data\Members";
-            string strTimestamp = DateTime.Now.Ticks.ToString();
+        //searching for the member is similar to the pokemon example
+        //members where email = email, lastname = lastname, phone number = phone number
+        //similar to the first step of the last lab
 
-            strFilePath += "." + extension;
-
-            return strFilePath;
-        }
 
         //clear button function
         private void btnClear_Click(object sender, RoutedEventArgs e)
@@ -156,8 +156,33 @@ namespace FitnessClub
             txtLastName.Text = "";
             txtEmail.Text = "";
             txtPhone.Text = "";
+            txtDetails.Text = "";
+            lbxMembers.Items.Clear();
 
             //clearing the record search results as well
         }
+
+        private void btnMain_Click_1(object sender, RoutedEventArgs e)
+        {
+            MainWindow newWindow = new MainWindow();
+            newWindow.Show();
+            this.Close();
+        }
+
+        private void lbxMembers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (lbxMembers.SelectedIndex > -1)
+            {
+                string strSelectedMember = lbxMembers.SelectedItem.ToString();
+
+                Members membersSelected = membersIndex.Where(m => m.LastName == strSelectedMember).FirstOrDefault();
+                txtDetails.Text = membersSelected.ToString();
+            }
+        }
     }
 }
+
+
+
+

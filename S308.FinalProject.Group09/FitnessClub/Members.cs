@@ -70,5 +70,26 @@ namespace FitnessClub
             FitnessGoal = fitnessGoal;
         }
 
+        public override string ToString()
+        {
+            return "First Name: " + FirstName + Environment.NewLine +
+                "Last Name: " + LastName + Environment.NewLine +
+                "Age: " + Age + Environment.NewLine +
+                "Weight: " + Weight + Environment.NewLine +
+                "Fitness Goal: " + FitnessGoal + Environment.NewLine +
+                "Gender: " + Gender + Environment.NewLine +
+                "Phone: " + Phone + Environment.NewLine +
+                "Email: " + Email + Environment.NewLine +
+                "Membership Type: " + MembershipType + Environment.NewLine +
+                "Personal Trainer: " + PersonalTrainer + Environment.NewLine +
+                "Locker Rental: " + LockerRental + Environment.NewLine +
+                "Start Date: " + StartDate + Environment.NewLine +
+                "End Date: " + EndDate + Environment.NewLine +
+                "Monthly Cost: " + MonthlyCost + Environment.NewLine +
+                "Total Cost: " + TotalCost + Environment.NewLine +
+                "Card Type: " + CardType + Environment.NewLine +
+                "Card Number: " + CardNumber + Environment.NewLine;
+        }
+
     }
     }

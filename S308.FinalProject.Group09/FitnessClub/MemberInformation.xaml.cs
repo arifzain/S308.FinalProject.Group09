@@ -34,7 +34,7 @@ namespace FitnessClub
         {
             List<Members> lstMembers = new List<Members>();
 
-            string strFilePath = @"../../../Data/Members.json";
+            string strFilePath = @"../../../../Data/Members.json";
 
             try
             {
@@ -47,7 +47,6 @@ namespace FitnessClub
             }
             return lstMembers;
         }
-
 
 
         private void btnMain_Click(object sender, RoutedEventArgs e)

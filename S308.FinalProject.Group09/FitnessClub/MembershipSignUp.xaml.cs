@@ -27,9 +27,7 @@ namespace FitnessClub
         public MembershipSignUp()
         {
             InitializeComponent();
-
-
-            //assigning the property from the member info class that was passed into this overridden constructor
+            
             InfoFromPrevWindow = new SignUp();
 
             membersList = new List<Members>();

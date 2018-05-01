@@ -16,7 +16,7 @@
 "TotalCost": "$191.88",
 "Age": "37",
 "Weight": "150",
-"FitnessGoal": "Overall Health",
+"FitnessGoal": "Overall Health"
 }, {
 "FirstName": "Lisa",
 "LastName": "Roman",
@@ -35,7 +35,7 @@
 "TotalCost": "$100.00",
 "Age": "24",
 "Weight": "135",
-"FitnessGoal": "Athletic Performance",
+"FitnessGoal": "Athletic Performance"
 }, {
 "FirstName": "Siva",
 "LastName": "Shankar",
@@ -54,7 +54,7 @@
 "TotalCost": "$191.88",
 "Age": "44",
 "Weight": "177",
-"FitnessGoal": "Overall Health",
+"FitnessGoal": "Overall Health"
 }, {
 "FirstName": "Lily",
 "LastName": "Marsh",
@@ -73,5 +73,5 @@
 "TotalCost": "$191.88",
 "Age": "22",
 "Weight": "125",
-"FitnessGoal": "",
+"FitnessGoal": ""
 }]

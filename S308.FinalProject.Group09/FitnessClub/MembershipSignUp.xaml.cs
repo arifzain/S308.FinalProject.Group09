@@ -26,12 +26,21 @@ namespace FitnessClub
         public MembershipSignUp()
         {
             InitializeComponent();
+        
+        }
+
+        public MembershipSignUp(SignUp info)
+        {
+            InitializeComponent();
+
+            //assigning the property from the member info class that was passed into this overridden constructor
+            InfoFromPrevWindow = info;
 
             InfoFromPrevWindow = new SignUp();
 
             membersList = new List<Members>();
 
-            string strFilePath = GetFilePath("json");
+            string strFilePath = @"../../../Data/members.json";
             try
             {
                 StreamReader reader = new StreamReader(strFilePath);
@@ -45,27 +54,6 @@ namespace FitnessClub
             {
                 MessageBox.Show("Error in import process: " + ex.Message);
             }
-            
-        
-        }
-
-        public MembershipSignUp(SignUp info)
-        {
-            InitializeComponent();
-
-            //assigning the property from the member info class that was passed into this overridden constructor
-            InfoFromPrevWindow = info;
-
-            string strMembershipType, strStartDate, strEndDate, strMembershipCost, strSubtotal, strPersonalTraining, strLockerRental, strTotal;
-
-            strMembershipType = InfoFromPrevWindow.MembershipType.ToString();
-            strStartDate = InfoFromPrevWindow.StartDate.ToString();
-            strEndDate = InfoFromPrevWindow.EndDate.ToString();
-            strMembershipCost = InfoFromPrevWindow.MembershipCost.ToString();
-            strSubtotal = InfoFromPrevWindow.Subtotal.ToString();
-            strPersonalTraining = InfoFromPrevWindow.PersonalTraining.ToString();
-            strLockerRental = InfoFromPrevWindow.LockerRental.ToString();
-            strTotal = InfoFromPrevWindow.Total.ToString();
 
         }
 
@@ -122,8 +110,7 @@ namespace FitnessClub
                 return;
             }
 
-
-            //validate the email
+            #region Email Validation
             if (strEmail == "")
             {
                 MessageBox.Show("Please enter an email address.");
@@ -140,8 +127,9 @@ namespace FitnessClub
                 MessageBox.Show("Valid email address format needs to be entered.");
                 return;
             }
+            #endregion
 
-            //validate the phone #
+            #region Phone Validation
             if (!double.TryParse(txtPhone.Text, out dblPhone))
             {
                 MessageBox.Show("Please enter valid numbers.");
@@ -162,11 +150,9 @@ namespace FitnessClub
                 return;
             }
 
+            #endregion
 
-
-
-
-            //validate the cc #
+            #region CC Validation
 
 
             //Naming the variables
@@ -261,6 +247,7 @@ namespace FitnessClub
                 txtCCNumber.Text = "";
                 return;
             }
+            #endregion
 
             strGender = cboGender.Text;
 
@@ -294,14 +281,14 @@ namespace FitnessClub
 
             string strMembershipType, strStartDate, strEndDate, strMembershipCost, strSubtotal, strPersonalTraining, strLockerRental, strTotal;
 
-            strMembershipType = InfoFromPrevWindow.MembershipType.ToString();
-            strStartDate = InfoFromPrevWindow.StartDate.ToString();
-            strEndDate = InfoFromPrevWindow.EndDate.ToString();
-            strMembershipCost = InfoFromPrevWindow.MembershipCost.ToString();
-            strSubtotal = InfoFromPrevWindow.Subtotal.ToString();
-            strPersonalTraining = InfoFromPrevWindow.PersonalTraining.ToString();
-            strLockerRental = InfoFromPrevWindow.LockerRental.ToString();
-            strTotal = InfoFromPrevWindow.Total.ToString();
+            strMembershipType = InfoFromPrevWindow.MembershipType;
+            strStartDate = InfoFromPrevWindow.StartDate;
+            strEndDate = InfoFromPrevWindow.EndDate;
+            strMembershipCost = InfoFromPrevWindow.MembershipCost;
+            strSubtotal = InfoFromPrevWindow.Subtotal;
+            strPersonalTraining = InfoFromPrevWindow.PersonalTraining;
+            strLockerRental = InfoFromPrevWindow.LockerRental;
+            strTotal = InfoFromPrevWindow.Total;
             
 
 
@@ -329,19 +316,11 @@ namespace FitnessClub
             }
         }
 
-        private string GetFilePath(string extension)
-        {
-            string strFilePath = @"..\Data\Members";
-            string strTimestamp = DateTime.Now.Ticks.ToString();
 
-            strFilePath += "." + extension;
-
-            return strFilePath;
-        }
 
         private void ExportToFile(Members membersNew)
         {
-            string strFilePath = GetFilePath("json");
+            string strFilePath = @"../../../Data/Members.json";
 
             try
             {

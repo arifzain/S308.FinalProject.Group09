@@ -24,7 +24,7 @@ namespace FitnessClub
         {
             InitializeComponent();
 
-            string strFilePath = GetFilePath("txt");
+            string strFilePath = @"../../../Data/Pricing.txt";
 
             try
             {

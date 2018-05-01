@@ -206,6 +206,7 @@ namespace FitnessClub
             SignUp signup = new SignUp(strMembershipTypeTrim, strStartDate, strEndDate, strMonthlyCost, strSubtotal, strTraining, strLocker, strTotal);
 
             MembershipSignUp memberSignUp = new MembershipSignUp(signup);
+            
 
 
 
@@ -222,9 +223,172 @@ namespace FitnessClub
 
         private void btnSignUp_Click(object sender, RoutedEventArgs e)
         {
-            MembershipSignUp newWindow = new MembershipSignUp();
-            newWindow.Show();
+            
+            //don't forget this line when overriding the constructor for a window
+            InitializeComponent();
+
+            //assigning the property from the member info class that was passed into this overridden constructor
+
+
+            string strStartDate, strEndDate, strMembershipType, strMembershipTypeTrim, strMonthlyCost, strSubtotal;
+            double dblMonthlyCost, dblSubtotal;
+
+            strMembershipTypeTrim = InfoFromPrevWindow.MembershipType.ToString().Trim();
+            strMembershipType = InfoFromPrevWindow.MembershipType.ToString();
+
+            strMembershipTypeTrim = strMembershipTypeTrim.Substring(0, strMembershipTypeTrim.IndexOf(":"));
+            strMonthlyCost = strMembershipType.Substring(strMembershipType.IndexOf(":") + 1).Trim();
+
+            dblMonthlyCost = Convert.ToDouble(strMonthlyCost);
+
+            strMonthlyCost = dblMonthlyCost.ToString("C2");
+
+            strStartDate = InfoFromPrevWindow.StartDate;
+            DateTime datStartDate;
+
+            datStartDate = DateTime.Parse(strStartDate);
+            dblSubtotal = 0;
+
+            if (strMembershipTypeTrim == "Individual 1 Month")
+            {
+                datStartDate = datStartDate.AddMonths(1);
+                dblSubtotal = dblMonthlyCost;
+            }
+            else if (strMembershipTypeTrim == "Individual 12 Month")
+            {
+                datStartDate = datStartDate.AddYears(1);
+                dblSubtotal = dblMonthlyCost * 12;
+            }
+            else if (strMembershipTypeTrim == "Two Person 1 Month")
+            {
+                datStartDate = datStartDate.AddMonths(1);
+                dblSubtotal = dblMonthlyCost;
+            }
+            else if (strMembershipTypeTrim == "Two Person 12 Month")
+            {
+                datStartDate = datStartDate.AddYears(1);
+                dblSubtotal = dblMonthlyCost * 12;
+            }
+            else if (strMembershipTypeTrim == "Family 1 Month")
+            {
+                datStartDate = datStartDate.AddMonths(1);
+                dblSubtotal = dblMonthlyCost;
+            }
+            else if (strMembershipTypeTrim == "Family 12 Month")
+            {
+                datStartDate = datStartDate.AddYears(1);
+                dblSubtotal = dblMonthlyCost * 12;
+            }
+
+            strSubtotal = dblSubtotal.ToString("C2");
+
+            strEndDate = string.Format("{0:MM/dd/yyyy}", datStartDate);
+
+            string strTraining, strLocker, strTotal;
+            double dblTraining, dblLocker, dblTotal;
+
+            strTraining = InfoFromPrevWindow.PersonalTraining;
+            strLocker = InfoFromPrevWindow.LockerRental;
+
+            dblTraining = 5;
+            dblLocker = 1;
+            dblTotal = 0;
+
+            if (strMembershipTypeTrim == "Individual 1 Month" && strTraining == "Yes" && strLocker == "Yes")
+            {
+                dblTotal = dblSubtotal + (1 * dblTraining) + (1 * dblLocker);
+            }
+            else if (strMembershipTypeTrim == "Individual 1 Month" && strTraining == "Yes" && strLocker == "No")
+            {
+                dblTotal = dblSubtotal + (1 * dblTraining);
+            }
+            else if (strMembershipTypeTrim == "Individual 1 Month" && strTraining == "No" && strLocker == "Yes")
+            {
+                dblTotal = dblSubtotal + (1 * dblLocker);
+            }
+
+            else if (strMembershipTypeTrim == "Individual 12 Month" && strTraining == "Yes" && strLocker == "Yes")
+            {
+                dblTotal = dblSubtotal + (12 * dblTraining) + (12 * dblLocker);
+            }
+            else if (strMembershipTypeTrim == "Individual 12 Month" && strTraining == "Yes" && strLocker == "No")
+            {
+                dblTotal = dblSubtotal + (12 * dblTraining);
+            }
+            else if (strMembershipTypeTrim == "Individual 12 Month" && strTraining == "No" && strLocker == "Yes")
+            {
+                dblTotal = dblSubtotal + (12 * dblLocker);
+            }
+
+
+            else if (strMembershipTypeTrim == "Two Person 1 Month" && strTraining == "Yes" && strLocker == "Yes")
+            {
+                dblTotal = dblSubtotal + (1 * dblTraining) + (1 * dblLocker);
+            }
+            else if (strMembershipTypeTrim == "Two Person 1 Month" && strTraining == "Yes" && strLocker == "No")
+            {
+                dblTotal = dblSubtotal + (1 * dblTraining);
+            }
+            else if (strMembershipTypeTrim == "Two Person 1 Month" && strTraining == "No" && strLocker == "Yes")
+            {
+                dblTotal = dblSubtotal + (1 * dblLocker);
+            }
+
+            else if (strMembershipTypeTrim == "Two Person 12 Month" && strTraining == "Yes" && strLocker == "Yes")
+            {
+                dblTotal = dblSubtotal + (12 * dblTraining) + (12 * dblLocker);
+            }
+            else if (strMembershipTypeTrim == "Two Person 12 Month" && strTraining == "Yes" && strLocker == "No")
+            {
+                dblTotal = dblSubtotal + (12 * dblTraining);
+            }
+            else if (strMembershipTypeTrim == "Two Person 12 Month" && strTraining == "No" && strLocker == "Yes")
+            {
+                dblTotal = dblSubtotal + (12 * dblLocker);
+            }
+
+
+            else if (strMembershipTypeTrim == "Family 1 Month" && strTraining == "Yes" && strLocker == "Yes")
+            {
+                dblTotal = dblSubtotal + (1 * dblTraining) + (1 * dblLocker);
+            }
+            else if (strMembershipTypeTrim == "Family 1 Month" && strTraining == "Yes" && strLocker == "No")
+            {
+                dblTotal = dblSubtotal + (1 * dblTraining);
+            }
+            else if (strMembershipTypeTrim == "Family 1 Month" && strTraining == "No" && strLocker == "Yes")
+            {
+                dblTotal = dblSubtotal + (1 * dblLocker);
+            }
+
+            else if (strMembershipTypeTrim == "Family 12 Month" && strTraining == "Yes" && strLocker == "Yes")
+            {
+                dblTotal = dblSubtotal + (12 * dblTraining) + (12 * dblLocker);
+            }
+            else if (strMembershipTypeTrim == "Family 12 Month" && strTraining == "Yes" && strLocker == "No")
+            {
+                dblTotal = dblSubtotal + (12 * dblTraining);
+            }
+            else if (strMembershipTypeTrim == "Family 12 Month" && strTraining == "No" && strLocker == "Yes")
+            {
+                dblTotal = dblSubtotal + (12 * dblLocker);
+            }
+
+            else
+            {
+                dblTotal = dblSubtotal;
+            }
+
+            strTotal = dblTotal.ToString("C2");
+
+
+            SignUp signup = new SignUp(strMembershipTypeTrim, strStartDate, strEndDate, strMonthlyCost, strSubtotal, strTraining, strLocker, strTotal);
+
+            MembershipSignUp memberSignUp = new MembershipSignUp(signup);
+            memberSignUp.Show();
             this.Close();
+            
         }
+
     }
 }

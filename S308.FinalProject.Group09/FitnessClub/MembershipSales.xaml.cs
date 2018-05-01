@@ -128,7 +128,7 @@ namespace FitnessClub
 
         }
 
-
+        // Getting the pricing file
         private string GetFilePath(string extension)
         {
             string strFilePath = @"..\..\..\..\Data\Pricing";
@@ -139,5 +139,11 @@ namespace FitnessClub
             return strFilePath;
         }
 
+        private void btn_MainMenu_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
     }
 }

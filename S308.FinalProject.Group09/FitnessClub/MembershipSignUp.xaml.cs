@@ -23,41 +23,45 @@ namespace FitnessClub
     {
         public SignUp InfoFromPrevWindow { get; set; }
         List<Members> membersList;
+
         public MembershipSignUp()
         {
             InitializeComponent();
-        
+
+
+            //assigning the property from the member info class that was passed into this overridden constructor
+            InfoFromPrevWindow = new SignUp();
+
+            membersList = new List<Members>();
+
+
+
         }
 
         public MembershipSignUp(SignUp info)
         {
+            //don't forget this line when overriding the constructor for a window
             InitializeComponent();
 
             //assigning the property from the member info class that was passed into this overridden constructor
             InfoFromPrevWindow = info;
 
-            InfoFromPrevWindow = new SignUp();
 
-            membersList = new List<Members>();
+            string strMembershipType, strStartDate, strEndDate, strMembershipCost, strSubtotal, strPersonalTraining, strLockerRental, strTotal;
 
-            string strFilePath = @"../../../Data/members.json";
-            try
-            {
-                StreamReader reader = new StreamReader(strFilePath);
-                string jsonData = reader.ReadToEnd();
-                reader.Close();
+            strMembershipType = InfoFromPrevWindow.MembershipType.ToString();
+            strStartDate = InfoFromPrevWindow.StartDate.ToString();
+            strEndDate = InfoFromPrevWindow.EndDate.ToString();
+            strMembershipCost = InfoFromPrevWindow.MembershipCost.ToString();
+            strSubtotal = InfoFromPrevWindow.Subtotal.ToString();
+            strPersonalTraining = InfoFromPrevWindow.PersonalTraining.ToString();
+            strLockerRental = InfoFromPrevWindow.LockerRental.ToString();
+            strTotal = InfoFromPrevWindow.Total.ToString();
 
-                membersList = JsonConvert.DeserializeObject<List<Members>>(jsonData);
+
+
             }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error in import process: " + ex.Message);
-            }
-
-        }
-
-
+    
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
@@ -73,12 +77,41 @@ namespace FitnessClub
             this.Close();
         }
 
-
-
-
-
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
+
+
+            string strFilePath = GetFilePath();
+            try
+            {
+                StreamReader reader = new StreamReader(strFilePath);
+                string jsonData = reader.ReadToEnd();
+                reader.Close();
+
+                membersList = JsonConvert.DeserializeObject<List<Members>>(jsonData);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in import process: " + ex.Message);
+            }
+
+
+            
+
+            string strMembershipType, strStartDate, strEndDate, strMembershipCost, strSubtotal, strPersonalTraining, strLockerRental, strTotal;
+
+            strMembershipType = InfoFromPrevWindow.MembershipType.ToString();
+            strStartDate = InfoFromPrevWindow.StartDate.ToString();
+            strEndDate = InfoFromPrevWindow.EndDate.ToString();
+            strMembershipCost = InfoFromPrevWindow.MembershipCost.ToString();
+            strSubtotal = InfoFromPrevWindow.Subtotal.ToString();
+            strPersonalTraining = InfoFromPrevWindow.PersonalTraining.ToString();
+            strLockerRental = InfoFromPrevWindow.LockerRental.ToString();
+            strTotal = InfoFromPrevWindow.Total.ToString();
+
+
+
             double dblPhone;
 
             string strFName, strLName, strPhone, strEmail, strGender, strAge, strWeight, strPersonalGoal;
@@ -110,7 +143,8 @@ namespace FitnessClub
                 return;
             }
 
-            #region Email Validation
+
+            //validate the email
             if (strEmail == "")
             {
                 MessageBox.Show("Please enter an email address.");
@@ -127,9 +161,8 @@ namespace FitnessClub
                 MessageBox.Show("Valid email address format needs to be entered.");
                 return;
             }
-            #endregion
 
-            #region Phone Validation
+            //validate the phone #
             if (!double.TryParse(txtPhone.Text, out dblPhone))
             {
                 MessageBox.Show("Please enter valid numbers.");
@@ -150,12 +183,41 @@ namespace FitnessClub
                 return;
             }
 
-            #endregion
-
-            #region CC Validation
 
 
-            //Naming the variables
+
+
+            //validate the cc #
+            //1. Declare a variables
+            //   - credit card number from the text box and assign (remove spaces)
+            //   - counter for loop
+            //   - check digit (to hold each digit while working with them)
+            //   - check sum (to hold the sum of the digits once modified)
+            //   - valid (boolean)
+            //   - card type
+            //2. Make sure the text entered is numeric
+            //       a. message to user that says to enter only numbers
+            //       b. show negative result
+            //3. Make sure there are 13, 15, 16 digits entered
+            //       a. message to the user about the number of digits
+            //       b. show negative result
+            //4. Determine the card type from the prefix and set the card type variable
+            //5. Validate card number
+            //       a. reverse all of the characters in the credit card number
+            //       b. loop through the characters
+            //           - if it is the first, third, fifth, etc digit add it to the check sum
+            //           - if it is the second, fourth, sixth, etc digit double before adding to the check sum
+            //                   - if after double the digit it is > 9 then add the two numbers before adding to the check sum
+            //                   - 12 = 1 + 2 or x - 9
+            //       c. if the result is divisible by 10 the card number is a valid number. Set the valid variable
+            //6. Show the appropriate result
+            //       'a. if valid
+            //           - change the card type to the correct type
+            //       b. else
+            //           - set the text of the result label to Credit Card Is Not Valid
+            //           - set the text color to red
+
+            //1.
             string strCardNum = txtCCNumber.Text.Trim().Replace(" ", "");
             long lngOut;
             bool bolValid = false;
@@ -164,7 +226,7 @@ namespace FitnessClub
             int intCheckSum = 0;
             string strCardType;
 
-            //Making sure the CC input is numbers
+            //2.
             txtCCNumber.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
 
             if (!Int64.TryParse(strCardNum, out lngOut))
@@ -174,7 +236,7 @@ namespace FitnessClub
                 return;
             }
 
-            //Making sure the CC input is the right amount of numbers
+            //3.
             if (strCardNum.Length != 13 && strCardNum.Length != 15 && strCardNum.Length != 16)
             {
                 MessageBox.Show("Credit card numbers must contain 13, 15, or 16 digits.");
@@ -182,7 +244,7 @@ namespace FitnessClub
                 return;
             }
 
-            //Matching the CC input to the CC type
+            //4.
             if (strCardNum.StartsWith("34") || strCardNum.StartsWith("37"))
                 strCardType = "AMEX";
             else if (strCardNum.StartsWith("6011"))
@@ -194,7 +256,7 @@ namespace FitnessClub
             else
                 strCardType = "Unknown Card Type";
 
-            //Validating the CC # based on the formula
+            //5.
             strCardNum = ReverseString(strCardNum);
 
             for (i = 0; i < strCardNum.Length; i++)
@@ -219,22 +281,22 @@ namespace FitnessClub
                 bolValid = true;
             }
 
-            //Changing the cboCCType selection based on the card type
+            //6.
             if (bolValid)
             {
                 switch (strCardType)
                 {
                     case "AMEX":
-                        cboCCType.SelectedIndex = 2;
+
                         break;
                     case "Discover":
-                        cboCCType.SelectedIndex = 3;
+
                         break;
                     case "MasterCard":
-                        cboCCType.SelectedIndex = 1;
+
                         break;
                     case "VISA":
-                        cboCCType.SelectedIndex = 0;
+
                         break;
                 }
 
@@ -243,11 +305,7 @@ namespace FitnessClub
             else
             {
                 txtCCNumber.Background = new SolidColorBrush(Color.FromRgb(255, 200, 200));
-                MessageBox.Show("Please enter in a valid Credit Card Number.");
-                txtCCNumber.Text = "";
-                return;
             }
-            #endregion
 
             strGender = cboGender.Text;
 
@@ -279,17 +337,6 @@ namespace FitnessClub
 
             strWeight = dblWeight.ToString();
 
-            string strMembershipType, strStartDate, strEndDate, strMembershipCost, strSubtotal, strPersonalTraining, strLockerRental, strTotal;
-
-            strMembershipType = InfoFromPrevWindow.MembershipType;
-            strStartDate = InfoFromPrevWindow.StartDate;
-            strEndDate = InfoFromPrevWindow.EndDate;
-            strMembershipCost = InfoFromPrevWindow.MembershipCost;
-            strSubtotal = InfoFromPrevWindow.Subtotal;
-            strPersonalTraining = InfoFromPrevWindow.PersonalTraining;
-            strLockerRental = InfoFromPrevWindow.LockerRental;
-            strTotal = InfoFromPrevWindow.Total;
-            
 
 
             Members membersNew = new Members(strFName, strLName, strCardType, strCardNum, strPhone, strEmail, strGender, strMembershipType, strStartDate, strEndDate, strMembershipCost, strPersonalTraining, strLockerRental, strTotal, strAge, strWeight, strPersonalGoal);
@@ -316,11 +363,18 @@ namespace FitnessClub
             }
         }
 
+        private string GetFilePath()
+        {
+            string strFilePath = @"../../../../Data/Members.json";
 
+
+
+            return strFilePath;
+        }
 
         private void ExportToFile(Members membersNew)
         {
-            string strFilePath = @"../../../Data/Members.json";
+            string strFilePath = GetFilePath();
 
             try
             {

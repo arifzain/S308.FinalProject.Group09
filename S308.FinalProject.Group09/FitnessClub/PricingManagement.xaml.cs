@@ -21,18 +21,15 @@ namespace FitnessClub
     /// </summary>
     public partial class PricingManagement : Window
     {
-        public Quote InfoFromPrevWindow { get; set; }
         List<Pricing> pricingList;
-
-
         public PricingManagement()
         {
             InitializeComponent();
 
-            InfoFromPrevWindow = new Quote();
-
+            //create new pricing list
             pricingList = new List<Pricing>();
 
+            //read pricing txt file and add prices to listboxes for output
             string strFilePath = GetFilePath("txt");
 
             try
@@ -52,10 +49,9 @@ namespace FitnessClub
                 MessageBox.Show("Error in import process: " + ex.Message);
             }
 
-
-
         }
 
+        //go back to main menu
         private void btnMainMenu_Click(object sender, RoutedEventArgs e)
         {
             MainWindow newWindow = new MainWindow();

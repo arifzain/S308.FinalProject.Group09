@@ -27,26 +27,26 @@ namespace FitnessClub
         public MembershipSignUp()
         {
             InitializeComponent();
-            
+
+            //default blank quote
             InfoFromPrevWindow = new SignUp();
 
+            //new member list
             membersList = new List<Members>();
-
-
 
         }
 
         public MembershipSignUp(SignUp info)
         {
-            //don't forget this line when overriding the constructor for a window
             InitializeComponent();
 
             //assigning the property from the member info class that was passed into this overridden constructor
             InfoFromPrevWindow = info;
 
-
+            //declare variables for data that will be transferred over from previous window
             string strMembershipType, strStartDate, strEndDate, strMembershipCost, strSubtotal, strPersonalTraining, strLockerRental, strTotal;
 
+            //assign info from previous window their respective varaibles
             strMembershipType = InfoFromPrevWindow.MembershipType.ToString();
             strStartDate = InfoFromPrevWindow.StartDate.ToString();
             strEndDate = InfoFromPrevWindow.EndDate.ToString();
@@ -56,29 +56,12 @@ namespace FitnessClub
             strLockerRental = InfoFromPrevWindow.LockerRental.ToString();
             strTotal = InfoFromPrevWindow.Total.ToString();
 
-
-
             }
     
-
-        private void btnBack_Click(object sender, RoutedEventArgs e)
-        {
-            MembershipQuote newWindow = new MembershipQuote();
-            newWindow.Show();
-            this.Close();
-        }
-
-        private void btnMainMenu_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            this.Close();
-        }
-
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-
-
+            
+            //read json file in preperation for write operation
             string strFilePath = GetFilePath();
             try
             {
@@ -94,9 +77,8 @@ namespace FitnessClub
                 MessageBox.Show("Error in import process: " + ex.Message);
             }
 
-
-            
-
+            //declare variables and assign them to info from previous window again
+            //this was the only way we could make the information from the previous window transfer over to the json file
             string strMembershipType, strStartDate, strEndDate, strMembershipCost, strSubtotal, strPersonalTraining, strLockerRental, strTotal;
 
             strMembershipType = InfoFromPrevWindow.MembershipType.ToString();
@@ -108,12 +90,9 @@ namespace FitnessClub
             strLockerRental = InfoFromPrevWindow.LockerRental.ToString();
             strTotal = InfoFromPrevWindow.Total.ToString();
 
-
-
+            //declare variables for data entered in this window
             double dblPhone;
-
             string strFName, strLName, strPhone, strEmail, strGender, strAge, strWeight, strPersonalGoal;
-
             int intAt, intPeriod, intEmailLength;
 
             //For data validation
@@ -180,10 +159,6 @@ namespace FitnessClub
                 MessageBox.Show("Phone number has to be 10 digits long.");
                 return;
             }
-
-
-
-
 
             //validate the cc #
             //1. Declare a variables
@@ -305,17 +280,18 @@ namespace FitnessClub
                 txtCCNumber.Background = new SolidColorBrush(Color.FromRgb(255, 200, 200));
             }
 
+            //get gender and goals data from combo boxes
             strGender = cboGender.Text;
-
             strPersonalGoal = cboGoals.Text;
 
-
-
+            //declare variables
             double dblAge, dblWeight;
 
+            //give varaiables values
             strAge = txtAge.Text;
             dblAge = Convert.ToDouble(strAge);
 
+            //validate age if not empty
             if (strAge == "" && !double.TryParse(strAge, out dblAge))
             {
                 MessageBox.Show("Please enter a valid number for age.");
@@ -327,6 +303,7 @@ namespace FitnessClub
             strWeight = txtWeight.Text;
             dblWeight = Convert.ToDouble(strWeight);
 
+            //validate weight if not empty
             if (strWeight == "" && !double.TryParse(strWeight, out dblWeight))
             {
                 MessageBox.Show("Please enter a valid number for weight.");
@@ -336,40 +313,36 @@ namespace FitnessClub
             strWeight = dblWeight.ToString();
 
 
-
+            //create a new members list
             Members membersNew = new Members(strFName, strLName, strCardType, strCardNum, strPhone, strEmail, strGender, strMembershipType, strStartDate, strEndDate, strMembershipCost, strPersonalTraining, strLockerRental, strTotal, strAge, strWeight, strPersonalGoal);
 
-            //show data extracted from text boxes and combo box in a message box as a way to preview data before adding to list and exporting to the json file
-            //user has the option (yes/no) to continue with the data submission process
-            MessageBoxResult messageBoxResult = MessageBox.Show("Do you want to add the member below?"
+            //prompt user to save data
+            MessageBoxResult messageBoxResult = MessageBox.Show("Do you want to add a new member?"
                 + Environment.NewLine
-                + Environment.NewLine
-                , "Add new member?"
+                , "Confirm?"
                 , MessageBoxButton.YesNo);
 
             //if statement to respond to the above (yes/no) selection
             if (messageBoxResult == MessageBoxResult.Yes)
             {
-                //if yes, the new customer created is added to list
+                //if yes, the new member created is added to list
                 membersList.Add(membersNew);
 
                 //new list is exported to replace the old one by calling upon a method
                 ExportToFile(membersNew);
 
-
-
             }
         }
 
+        //method to get file path
         private string GetFilePath()
         {
             string strFilePath = @"../../../Data/Members.json";
 
-
-
             return strFilePath;
         }
 
+        //method to export json file
         private void ExportToFile(Members membersNew)
         {
             string strFilePath = GetFilePath();
@@ -388,11 +361,28 @@ namespace FitnessClub
 
             MessageBox.Show("Customer saved." + Environment.NewLine + "File Created: " + strFilePath);
         }
+        //method to reverse string
         public static string ReverseString(string s)
         {
             char[] array = s.ToCharArray();
             Array.Reverse(array);
             return new string(array);
         }
+        //go back one window
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            MembershipQuote newWindow = new MembershipQuote();
+            newWindow.Show();
+            this.Close();
+        }
+
+        //go back to main menu
+        private void btnMainMenu_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
     }
+
 }

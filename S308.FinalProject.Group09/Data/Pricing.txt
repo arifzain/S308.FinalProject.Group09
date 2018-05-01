@@ -1,0 +1,6 @@
+Individual 1 Month: 9.99
+Family 12 Month: 100
+Individual 1 Month: 14.99
+Two Person 1 Month: 160
+Two Person 1 Month: 19.99
+Family 1 Month: 200
